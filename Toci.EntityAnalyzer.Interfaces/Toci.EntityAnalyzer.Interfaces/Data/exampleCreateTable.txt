@@ -1,0 +1,5 @@
+﻿[Orientation:Horizontal]
+create table Examples (
+	Id int primary key, -- [:|:|:####] /
+	
+);
