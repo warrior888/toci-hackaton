@@ -1,0 +1,26 @@
+#####################
+# Visual Studio
+#####################
+*.user
+*.suo
+*.sln.cache
+#####################
+# Build
+#####################
+bin/
+obj/
+packages/
+#####################
+# Resharper
+#####################
+*.resharper
+*\_ReSharper*
+*_ReSharper*
+#####################
+# StyleCop
+#####################
+StyleCop.Cache
+*.xsd.cs
+*.btm.cs
+# Visual Studio cache/options directory
+.vs/
