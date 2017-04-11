@@ -43,7 +43,7 @@
     <Compile Include="Entities\ICtModelMetadata.cs" />
     <Compile Include="Entities\ICtParsed.cs" />
     <Compile Include="Entities\IEntityData.cs" />
-    <Compile Include="Entities\IModelData.cs" />
+    <Compile Include="Entities\IModelColumnData.cs" />
     <Compile Include="Entities\IModelFieldMetadata.cs" />
     <Compile Include="Parametrization\CtConsts.cs" />
     <Compile Include="Parametrization\FieldKinds.cs" />

@@ -5,6 +5,6 @@ namespace Toci.EntityAnalyzer.Interfaces.Tools
 {
     public interface IColumnsParser
     {
-        Dictionary<string, IModelData> GetModelDataForColumns(ICtParsed parsedCt);
+        Dictionary<string, IModelColumnData> GetModelDataForColumns(ICtParsed parsedCt);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Toci.EntityAnalyzer.Interfaces.Entities
 {
-    public interface IModelData
+    public interface IModelColumnData
     {
         string Model { get; set; }
 

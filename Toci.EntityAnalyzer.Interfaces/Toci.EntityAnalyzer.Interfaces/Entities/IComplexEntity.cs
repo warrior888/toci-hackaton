@@ -6,7 +6,7 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
     {
         Dictionary<string, IEntityData> Entities { get; set; }
 
-        Dictionary<string, IModelData> Models { get; set; }
+        Dictionary<string, IModelColumnData> Models { get; set; }
 
         Dictionary<string, IModelFieldMetadata> MetaData { get; set; }
     }

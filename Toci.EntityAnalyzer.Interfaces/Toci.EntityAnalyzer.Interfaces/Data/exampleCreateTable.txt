@@ -1,5 +1,5 @@
-﻿[Orientation:Horizontal]
+﻿-- [Orientation:Horizontal|ScreenId:12]
 create table Examples (
-	Id int primary key, -- [:|:|:####] /
+	Id int primary key, -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5] /
 	
 );

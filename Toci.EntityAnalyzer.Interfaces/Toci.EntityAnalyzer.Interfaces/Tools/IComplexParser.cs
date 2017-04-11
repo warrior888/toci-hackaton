@@ -2,7 +2,7 @@
 
 namespace Toci.EntityAnalyzer.Interfaces.Tools
 {
-    public interface IComplexParser
+    public interface IComplexParser // : IChorManager
     {
         IComplexEntity ParseEntireCt(string tableCreates);
     }
