@@ -6,7 +6,7 @@ namespace Toci.EntityAnalyzer.UiGenerator.CodeBehind
 {
     public abstract class CodeBehindGenerator : ICodeBehindGenerator
     {
-        public ICodeBehindEntity Generate(IControlEntity controlEntity, IComplexProperty sCEntity)
+        public ICodeBehindEntity Generate(IComplexProperty complexProperty)
         {
             throw new System.NotImplementedException();
         }
