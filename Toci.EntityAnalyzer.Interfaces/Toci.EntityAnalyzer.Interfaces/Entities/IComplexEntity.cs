@@ -2,12 +2,11 @@
 
 namespace Toci.EntityAnalyzer.Interfaces.Entities
 {
+    /// <summary>
+    /// Class definition, contains all properties as ComplexProperties
+    /// </summary>
     public interface IComplexEntity
     {
-        Dictionary<string, IEntityData> Entities { get; set; }
-
-        Dictionary<string, IModelColumnData> Models { get; set; }
-
-        Dictionary<string, IModelFieldMetadata> MetaData { get; set; }
+        IList<IComplexProperty> ComplexProperties { get; set; }
     }
 }

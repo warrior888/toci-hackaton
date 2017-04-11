@@ -4,6 +4,9 @@ using Toci.EntityAnalyzer.Interfaces.Parametrization;
 
 namespace Toci.EntityAnalyzer.Interfaces.Entities
 {
+    /// <summary>
+    /// Contains data about field collected from custom tags in SQL script
+    /// </summary>
     public interface IModelFieldMetadata
     {
         string Tag { get; set; }

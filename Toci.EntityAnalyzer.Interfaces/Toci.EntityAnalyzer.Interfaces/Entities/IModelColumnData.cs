@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Toci.EntityAnalyzer.Interfaces.Entities
 {
+    /// <summary>
+    /// Contains data collected from SQL script
+    /// </summary>
     public interface IModelColumnData
     {
         string Model { get; set; }
@@ -12,8 +16,8 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
 
         Type Type { get; set; }
 
-        string Constraints { get; set; }
+        string Constraints { get; set; }  
 
-        string ForeignKeyTable { get; set; }
+        KeyValuePair<string, string> ForeignKeyTableColumn { get; set; } 
     }
 }

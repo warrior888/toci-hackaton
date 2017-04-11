@@ -2,6 +2,9 @@
 
 namespace Toci.EntityAnalyzer.Interfaces.Entities
 {
+    /// <summary>
+    /// Contains metadata about table
+    /// </summary>
     public interface ICtModelMetadata
     {
         string FormTag { get; set; }

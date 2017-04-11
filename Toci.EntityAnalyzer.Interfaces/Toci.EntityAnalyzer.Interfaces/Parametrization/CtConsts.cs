@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Toci.EntityAnalyzer.Interfaces.Parametrization
 {
+    /// <summary>
+    /// specify all the possible chars that can appear in SQL script as consts
+    /// </summary>
     public static class CtConsts
     {
         public const string Create = "create";
