@@ -10,8 +10,6 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
 
         int ScreenId { get; set; }
 
-        FormOrientation Orientation { get; set; }
-
         string Model { get; set; }
 
         string Name { get; set; }
