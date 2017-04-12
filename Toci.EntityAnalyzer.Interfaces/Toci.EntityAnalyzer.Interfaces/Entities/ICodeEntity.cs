@@ -7,9 +7,7 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
     /// </summary>
     public interface ICodeEntity
     {
-        Dictionary<string,string> Consts { get; set; } 
-        Dictionary<string,string> Properties { get; set; } 
-        Dictionary<string,string> Fields { get; set; } 
-        Dictionary<string,string> Methods { get; set; }
+        IList<string> Properties { get; set; } 
+        IList<string> Handlers { get; set; }
     }
 }

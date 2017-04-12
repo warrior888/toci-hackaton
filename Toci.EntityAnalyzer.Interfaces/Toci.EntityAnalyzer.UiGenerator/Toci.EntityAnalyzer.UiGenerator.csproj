@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeBehind\CodeBehindGenerator.cs" />
+    <Compile Include="CodeBehind\WpfCodeBehindGenerator.cs" />
+    <Compile Include="Controls\ControlGenerator.cs" />
+    <Compile Include="Data\WpfCodeBehindEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
