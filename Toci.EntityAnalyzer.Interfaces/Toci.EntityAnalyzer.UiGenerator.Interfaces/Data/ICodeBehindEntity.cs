@@ -7,6 +7,8 @@ namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.Data
     /// </summary>
     public interface ICodeBehindEntity : ICodeEntity
     {
-        
+        //maybe in ICodeEntity
+        string Name { get; set; }
+        string Materialize();
     }
 }

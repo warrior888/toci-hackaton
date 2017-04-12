@@ -11,5 +11,7 @@ namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.CodeBehind
         /// <param name="complexProperty"></param>
         /// <returns></returns>
         ICodeBehindEntity Generate(IComplexProperty complexProperty);
+
+
     }
 }

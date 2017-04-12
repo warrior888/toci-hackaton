@@ -13,6 +13,6 @@ namespace Toci.EntityAnalyzer.UiGenerator.CodeBehind
     {
         public abstract ICodeBehindEntity Generate(IComplexProperty complexProperty);
 
-        protected abstract string GenerateSkeleton(Type type);
+        protected abstract string GenerateSkeleton(IComplexEntity complexEntity);
     }
 }

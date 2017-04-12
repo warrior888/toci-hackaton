@@ -42,7 +42,9 @@
     <Compile Include="CodeBehind\CodeBehindGenerator.cs" />
     <Compile Include="CodeBehind\WpfCodeBehindGenerator.cs" />
     <Compile Include="Controls\ControlGenerator.cs" />
+    <Compile Include="Controls\WpfControlGenerator.cs" />
     <Compile Include="Data\WpfCodeBehindEntity.cs" />
+    <Compile Include="Managers\UiGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

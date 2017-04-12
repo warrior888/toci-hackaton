@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using Toci.EntityAnalyzer.Interfaces.Entities;
 using Toci.EntityAnalyzer.UiGenerator.Data;
 using Toci.EntityAnalyzer.UiGenerator.Interfaces.Data;
@@ -12,13 +13,14 @@ namespace Toci.EntityAnalyzer.UiGenerator.CodeBehind
         {
             Type propertyType = complexProperty.Entity.FieldType;
             Type genericType = typeof(WpfCodeBehindEntity<>).MakeGenericType(propertyType);
-            var codeBehindEntity = (ICodeBehindEntity)Activator.CreateInstance(genericType);
+            var codeBehindEntity = (ICodeBehindEntity)Activator.CreateInstance(genericType, complexProperty.Entity.Name);
+            Filter(codeBehindEntity, complexProperty);
             return codeBehindEntity;
         }
-        protected override string GenerateSkeleton(Type type)
+        protected override string GenerateSkeleton(IComplexEntity complexEntity)
         {
-            //todo: set AppName {AppName}
-            string skeleton =
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(
                 "using System.Windows;" + Environment.NewLine +
                 "" + Environment.NewLine +
                 "namespace {AppName}" + Environment.NewLine +
@@ -40,13 +42,18 @@ namespace Toci.EntityAnalyzer.UiGenerator.CodeBehind
                 "		{Handlers}" + Environment.NewLine +
                 "" + Environment.NewLine +
                 "	}" + Environment.NewLine +
-                "}";
-            string typeNameWithoutNamespace = type.ToString().Split('.').Last();
-            skeleton = skeleton.Replace("{EntityName}", typeNameWithoutNamespace);
-            skeleton = skeleton.Replace("{EntityNameToLower}", typeNameWithoutNamespace.ToLower());
-            return skeleton;
+                "}");
+            string typeNameWithoutNamespace = complexEntity.Name;
+            stringBuilder.Replace("{AppName}", typeNameWithoutNamespace);
+            stringBuilder.Replace("{EntityName}", typeNameWithoutNamespace);
+            stringBuilder.Replace("{EntityNameToLower}", typeNameWithoutNamespace.ToLower());
+            return stringBuilder.ToString();
         }
 
-
+        protected void Filter(ICodeBehindEntity codeBehindEntity, IComplexProperty complexProperty)
+        {
+            //some filtering logic on codeBehindEntity.Handlers and Properties, to get rid of unnecessary
+            //filtering based on constraints, FODF, LFFF etc from complexProperty
+        }
     }
 }

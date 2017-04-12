@@ -41,12 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeBehind\ICodeBehindGenerator.cs" />
-    <Compile Include="ControlsConsts\Handlers.cs" />
-    <Compile Include="ControlsConsts\Properties.cs" />
+    <Compile Include="ControlsFeatures\Handlers.cs" />
+    <Compile Include="ControlsFeatures\Properties.cs" />
+    <Compile Include="ControlsFeatures\WpfHandlers.cs" />
+    <Compile Include="ControlsFeatures\WpfProperties.cs" />
     <Compile Include="Controls\IControlGenerator.cs" />
     <Compile Include="Data\ICodeBehindEntity.cs" />
     <Compile Include="Data\IControlEntity.cs" />
     <Compile Include="Form\IFormGenerator.cs" />
+    <Compile Include="Managers\IUiGenerator.cs" />
+    <Compile Include="Managers\IUiGeneratorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
