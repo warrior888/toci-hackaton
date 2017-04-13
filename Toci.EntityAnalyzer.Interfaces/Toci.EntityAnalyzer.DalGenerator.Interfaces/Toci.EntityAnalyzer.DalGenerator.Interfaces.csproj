@@ -41,6 +41,15 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.Interfaces\Toci.EntityAnalyzer.Interfaces.csproj">
+      <Project>{9283c2ec-fddf-43c6-8055-1ba37063293d}</Project>
+      <Name>Toci.EntityAnalyzer.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EntityInformation\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\IClassCode.cs" />
     <Compile Include="Entities\ICodeEntity.cs" />
     <Compile Include="Entities\IComplexEntity.cs" />
     <Compile Include="Entities\ICtModelMetadata.cs" />
