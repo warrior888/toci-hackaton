@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE6CC9F2-D148-46A5-B449-6C7EFEF0CC0F}</ProjectGuid>
+    <ProjectGuid>{CB44F4A2-189D-44CD-8D19-386100D678C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Toci.Generator.Core.Interfaces</RootNamespace>
-    <AssemblyName>Toci.Generator.Core.Interfaces</AssemblyName>
+    <RootNamespace>Toci.EntityAnalyzer.BllGenerator</RootNamespace>
+    <AssemblyName>Toci.EntityAnalyzer.BllGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,18 +45,6 @@
     <ProjectReference Include="..\Toci.EntityAnalyzer.BllGenerator.Interfaces\Toci.EntityAnalyzer.BllGenerator.Interfaces.csproj">
       <Project>{11da77ea-2468-44ea-8cb1-a15231bffea0}</Project>
       <Name>Toci.EntityAnalyzer.BllGenerator.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Toci.EntityAnalyzer.DalGenerator.Interfaces\Toci.EntityAnalyzer.DalGenerator.Interfaces.csproj">
-      <Project>{b9616a3b-6ec0-4dee-a025-a0518c6b5f34}</Project>
-      <Name>Toci.EntityAnalyzer.DalGenerator.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Toci.EntityAnalyzer.Interfaces\Toci.EntityAnalyzer.Interfaces.csproj">
-      <Project>{9283c2ec-fddf-43c6-8055-1ba37063293d}</Project>
-      <Name>Toci.EntityAnalyzer.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator.Interfaces\Toci.EntityAnalyzer.UiGenerator.Interfaces.csproj">
-      <Project>{faf757a0-713c-467c-8ded-c6085dd1fe59}</Project>
-      <Name>Toci.EntityAnalyzer.UiGenerator.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
