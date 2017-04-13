@@ -6,7 +6,7 @@ namespace Toci.EntityAnalyzer.Interfaces.Tools
 {
     public interface ICtParser
     {
-        IList<ICtParsed> ParseCt(string allCt);
+        List<ICtParsed> ParseCt(string allCt);
 
 
     }

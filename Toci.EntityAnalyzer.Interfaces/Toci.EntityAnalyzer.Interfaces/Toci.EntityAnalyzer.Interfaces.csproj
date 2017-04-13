@@ -52,11 +52,12 @@
     <Compile Include="Parametrization\FieldKinds.cs" />
     <Compile Include="Parametrization\FormOrientation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\IClassCodeManager.cs" />
+    <Compile Include="Tools\IClassStoreManager.cs" />
     <Compile Include="Tools\IColumnsParser.cs" />
     <Compile Include="Tools\IComplexParser.cs" />
     <Compile Include="Tools\ICtParser.cs" />
     <Compile Include="Tools\IEntityPropertyReader.cs" />
-    <Compile Include="Tools\IMetadataParser.cs" />
     <Compile Include="Validation\ICustomValidator.cs" />
     <Compile Include="Validation\IValidationResult.cs" />
     <Compile Include="Validation\IValidator.cs" />

@@ -10,6 +10,6 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
     {
         string TableName { get; set; }
 
-        IList<string> Columns { get; set; }
+        List<string> Columns { get; set; }
     }
 }
