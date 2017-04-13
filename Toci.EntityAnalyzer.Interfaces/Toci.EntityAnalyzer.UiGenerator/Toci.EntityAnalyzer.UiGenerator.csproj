@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +42,10 @@
   <ItemGroup>
     <Compile Include="CodeBehind\CodeBehindGenerator.cs" />
     <Compile Include="CodeBehind\WpfCodeBehindGenerator.cs" />
+    <Compile Include="ControlsFeatures\Handlers.cs" />
+    <Compile Include="ControlsFeatures\Properties.cs" />
+    <Compile Include="ControlsFeatures\WpfHandlers.cs" />
+    <Compile Include="ControlsFeatures\WpfProperties.cs" />
     <Compile Include="Controls\ControlGenerator.cs" />
     <Compile Include="Controls\WpfControlGenerator.cs" />
     <Compile Include="Data\WpfCodeBehindEntity.cs" />

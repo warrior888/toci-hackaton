@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Controls;
 
-namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.ControlsFeatures
+namespace Toci.EntityAnalyzer.UiGenerator.ControlsFeatures
 {
     public abstract class Handlers 
     {

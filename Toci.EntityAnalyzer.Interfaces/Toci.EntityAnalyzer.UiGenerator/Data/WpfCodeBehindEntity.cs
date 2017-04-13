@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Toci.EntityAnalyzer.UiGenerator.Interfaces.ControlsFeatures;
 using Toci.EntityAnalyzer.UiGenerator.Interfaces.Data;
+using WpfHandlers = Toci.EntityAnalyzer.UiGenerator.ControlsFeatures.WpfHandlers;
 
 namespace Toci.EntityAnalyzer.UiGenerator.Data
 {

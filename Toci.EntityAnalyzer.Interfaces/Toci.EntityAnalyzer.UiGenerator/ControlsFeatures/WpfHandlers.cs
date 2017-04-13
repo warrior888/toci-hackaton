@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Controls;
 
-namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.ControlsFeatures
+namespace Toci.EntityAnalyzer.UiGenerator.ControlsFeatures
 {
     public class WpfHandlers : Handlers
     {
