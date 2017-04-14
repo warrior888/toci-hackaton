@@ -58,6 +58,7 @@
     <Compile Include="Tools\IComplexParser.cs" />
     <Compile Include="Tools\ICtParser.cs" />
     <Compile Include="Tools\IEntityPropertyReader.cs" />
+    <Compile Include="Tools\IModelFieldMetadataComplexParser.cs" />
     <Compile Include="Validation\ICustomValidator.cs" />
     <Compile Include="Validation\IValidationResult.cs" />
     <Compile Include="Validation\IValidator.cs" />
