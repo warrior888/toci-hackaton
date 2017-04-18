@@ -43,6 +43,7 @@
     <Compile Include="Entities\TournamentOponents.cs" />
     <Compile Include="Entities\TournamentParticipant.cs" />
     <Compile Include="Entities\TournamentScore.cs" />
+    <Compile Include="Managers\GroupsManager.cs" />
     <Compile Include="Managers\ParticipantsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

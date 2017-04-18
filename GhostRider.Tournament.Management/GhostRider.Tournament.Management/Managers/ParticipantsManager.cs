@@ -21,8 +21,9 @@ namespace GhostRider.Tournament.Management.Managers
             return result;
         }
 
-        public Dictionary<int, TournamentGroup> DrawGroups(Dictionary<string, TournamentParticipant> allParticipants, int numberOfGroups)
+        public Dictionary<int, TournamentGroup> DrawGroups(Dictionary<string, TournamentParticipant> allParticipants1, int numberOfGroups)
         {
+            Dictionary<string, TournamentParticipant> allParticipants = new Dictionary<string, TournamentParticipant>(allParticipants1);
             Dictionary<int, TournamentGroup> result = new Dictionary<int, TournamentGroup>();
             Random rnd = new Random((int)DateTime.Now.Ticks);
             int randomPosition = 1;

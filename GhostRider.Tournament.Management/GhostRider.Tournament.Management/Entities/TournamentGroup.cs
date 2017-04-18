@@ -6,6 +6,6 @@ namespace GhostRider.Tournament.Management.Entities
     {
         public Dictionary<string, TournamentParticipant> Group { get; set; }
 
-        public List<TournamentOponents> Matches { get; set; }
+        public Dictionary<string, TournamentOponents> Matches { get; set; }
     }
 }

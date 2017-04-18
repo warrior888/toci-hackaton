@@ -16,5 +16,19 @@ namespace GhostRider.Tournament.Management.Test
             var groups = manager.DrawGroups(tournamentParticipants, 3);
             var groups2 = manager.DrawGroups(manager.GetTournamentParticipants(DataProvider.TournamentParticipants), 2);
         }
+
+        [TestMethod]
+        public void TestMatchesDraw()
+        {
+            GroupsManager grMan = new GroupsManager();
+
+            ParticipantsManager manager = new ParticipantsManager();
+
+            var tournamentParticipants = manager.GetTournamentParticipants(DataProvider.TournamentParticipants);
+
+            var groups = manager.DrawGroups(tournamentParticipants, 2);
+
+            grMan.CreateMatches(groups);
+        }
     }
 }
