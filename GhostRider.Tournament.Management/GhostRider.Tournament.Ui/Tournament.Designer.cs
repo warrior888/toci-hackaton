@@ -34,29 +34,33 @@
             this.groupsCountTextbox = new System.Windows.Forms.TextBox();
             this.drawGroupsButton = new System.Windows.Forms.Button();
             this.groupsCountLabel = new System.Windows.Forms.Label();
+            this.GroupAggregate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // participantAddLabel
             // 
             this.participantAddLabel.AutoSize = true;
-            this.participantAddLabel.Location = new System.Drawing.Point(13, 13);
+            this.participantAddLabel.Location = new System.Drawing.Point(17, 16);
+            this.participantAddLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.participantAddLabel.Name = "participantAddLabel";
-            this.participantAddLabel.Size = new System.Drawing.Size(88, 13);
+            this.participantAddLabel.Size = new System.Drawing.Size(115, 17);
             this.participantAddLabel.TabIndex = 0;
             this.participantAddLabel.Text = "Podaj uczestnika";
             // 
             // participantTextbox
             // 
-            this.participantTextbox.Location = new System.Drawing.Point(107, 10);
+            this.participantTextbox.Location = new System.Drawing.Point(143, 12);
+            this.participantTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.participantTextbox.Name = "participantTextbox";
-            this.participantTextbox.Size = new System.Drawing.Size(210, 20);
+            this.participantTextbox.Size = new System.Drawing.Size(279, 22);
             this.participantTextbox.TabIndex = 1;
             // 
             // addParticipant
             // 
-            this.addParticipant.Location = new System.Drawing.Point(323, 8);
+            this.addParticipant.Location = new System.Drawing.Point(431, 10);
+            this.addParticipant.Margin = new System.Windows.Forms.Padding(4);
             this.addParticipant.Name = "addParticipant";
-            this.addParticipant.Size = new System.Drawing.Size(132, 23);
+            this.addParticipant.Size = new System.Drawing.Size(176, 28);
             this.addParticipant.TabIndex = 2;
             this.addParticipant.Text = "Dodaj";
             this.addParticipant.UseVisualStyleBackColor = true;
@@ -64,17 +68,19 @@
             // 
             // groupsCountTextbox
             // 
-            this.groupsCountTextbox.Location = new System.Drawing.Point(533, 10);
+            this.groupsCountTextbox.Location = new System.Drawing.Point(711, 12);
+            this.groupsCountTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.groupsCountTextbox.Name = "groupsCountTextbox";
-            this.groupsCountTextbox.Size = new System.Drawing.Size(41, 20);
+            this.groupsCountTextbox.Size = new System.Drawing.Size(53, 22);
             this.groupsCountTextbox.TabIndex = 3;
             this.groupsCountTextbox.Text = "3";
             // 
             // drawGroupsButton
             // 
-            this.drawGroupsButton.Location = new System.Drawing.Point(580, 8);
+            this.drawGroupsButton.Location = new System.Drawing.Point(773, 10);
+            this.drawGroupsButton.Margin = new System.Windows.Forms.Padding(4);
             this.drawGroupsButton.Name = "drawGroupsButton";
-            this.drawGroupsButton.Size = new System.Drawing.Size(75, 23);
+            this.drawGroupsButton.Size = new System.Drawing.Size(100, 28);
             this.drawGroupsButton.TabIndex = 4;
             this.drawGroupsButton.Text = "Losuj grupy";
             this.drawGroupsButton.UseVisualStyleBackColor = true;
@@ -83,23 +89,36 @@
             // groupsCountLabel
             // 
             this.groupsCountLabel.AutoSize = true;
-            this.groupsCountLabel.Location = new System.Drawing.Point(462, 13);
+            this.groupsCountLabel.Location = new System.Drawing.Point(616, 16);
+            this.groupsCountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.groupsCountLabel.Name = "groupsCountLabel";
-            this.groupsCountLabel.Size = new System.Drawing.Size(53, 13);
+            this.groupsCountLabel.Size = new System.Drawing.Size(69, 17);
             this.groupsCountLabel.TabIndex = 5;
             this.groupsCountLabel.Text = "Ilość grup";
             // 
+            // GroupAggregate
+            // 
+            this.GroupAggregate.Location = new System.Drawing.Point(881, 10);
+            this.GroupAggregate.Margin = new System.Windows.Forms.Padding(4);
+            this.GroupAggregate.Name = "GroupAggregate";
+            this.GroupAggregate.Size = new System.Drawing.Size(132, 28);
+            this.GroupAggregate.TabIndex = 6;
+            this.GroupAggregate.Text = "Podsumuj Grupy";
+            this.GroupAggregate.UseVisualStyleBackColor = true;
+            // 
             // Tournament
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 526);
+            this.ClientSize = new System.Drawing.Size(1773, 647);
+            this.Controls.Add(this.GroupAggregate);
             this.Controls.Add(this.groupsCountLabel);
             this.Controls.Add(this.drawGroupsButton);
             this.Controls.Add(this.groupsCountTextbox);
             this.Controls.Add(this.addParticipant);
             this.Controls.Add(this.participantTextbox);
             this.Controls.Add(this.participantAddLabel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Tournament";
             this.Text = "Tournament";
             this.Load += new System.EventHandler(this.Tournament_Load);
@@ -116,8 +135,7 @@
         private System.Windows.Forms.TextBox groupsCountTextbox;
         private System.Windows.Forms.Button drawGroupsButton;
         private System.Windows.Forms.Label groupsCountLabel;
-
-        
+        private System.Windows.Forms.Button GroupAggregate;
     }
 }
 
