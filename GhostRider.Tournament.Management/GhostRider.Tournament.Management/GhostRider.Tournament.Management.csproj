@@ -44,7 +44,9 @@
     <Compile Include="Entities\TournamentParticipant.cs" />
     <Compile Include="Entities\TournamentScore.cs" />
     <Compile Include="Managers\GroupsManager.cs" />
+    <Compile Include="Managers\MatchesManager.cs" />
     <Compile Include="Managers\ParticipantsManager.cs" />
+    <Compile Include="Managers\ScoreManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
