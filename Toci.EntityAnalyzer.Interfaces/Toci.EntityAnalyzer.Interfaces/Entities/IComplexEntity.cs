@@ -10,6 +10,6 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
     public interface IComplexEntity
     {
         string Name { get; set; }
-        List<IComplexProperty> ComplexProperties { get; set; }
+        Dictionary<string, IComplexProperty> ComplexProperties { get; set; } // string - nazwa kolumny
     }
 }

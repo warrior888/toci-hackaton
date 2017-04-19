@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\LabelEntity.cs" />
+    <Compile Include="Entities\MatchTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Entities\TextBoxEntity.cs" />
     <Compile Include="Tournament.cs">
       <SubType>Form</SubType>

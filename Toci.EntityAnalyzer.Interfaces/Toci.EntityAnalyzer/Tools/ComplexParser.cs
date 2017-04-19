@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Toci.EntityAnalyzer.Entities;
 using Toci.EntityAnalyzer.Interfaces.Entities;
 using Toci.EntityAnalyzer.Interfaces.Tools;
 
@@ -9,6 +10,8 @@ namespace Toci.EntityAnalyzer.Tools
     {
         public virtual IComplexEntity ParseEntireCt(string tableCreates)
         {
+            IComplexEntity entity = new ComplexEntity();
+
             var baseType = typeof(ComplexParser<TResult>);
             var assembly = baseType.Assembly;
 
@@ -17,19 +20,20 @@ namespace Toci.EntityAnalyzer.Tools
             {
                 if(parser != null)
                 {
-                    dynamic instance = Activator.CreateInstance(parser);
-                    var method = instance.GetMethod("Parse");
-                    if (method != null)
-                    {
-                        method.Invoke(instance, tableCreates);
-                    }
+                    ComplexParser<object> instance = (ComplexParser<object>)Activator.CreateInstance(parser);
+                    instance.Parse(tableCreates, entity);
                 }
                
             }
-            return null; // TODO          
+            return entity; 
         }
 
-        protected abstract TResult Parse(string tableCreates);
+        protected virtual string GetColumnName(string columnDdl)
+        {
+            return columnDdl.Split(new[] {" "}, StringSplitOptions.None)[0];
+        }
+
+        protected abstract void Parse(string tableCreates, IComplexEntity entity);
 
     }
 }

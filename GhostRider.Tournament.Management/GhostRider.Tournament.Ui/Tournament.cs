@@ -27,7 +27,7 @@ namespace GhostRider.Tournament.Ui
         protected List<Label> GroupsLabels = new List<Label>();
         protected List<Label> MatchesLabels = new List<Label>();
         private int X;
-        protected Dictionary<string, TextBox> TextBoxList = new Dictionary<string, TextBox>();
+        protected Dictionary<string, MatchTextbox> TextBoxList = new Dictionary<string, MatchTextbox>();
 
         public Tournament()
         {
@@ -102,7 +102,7 @@ namespace GhostRider.Tournament.Ui
             int y;
             int sizeX = 90;
 
-            TextBoxList = new Dictionary<string, TextBox>();
+            TextBoxList = new Dictionary<string, MatchTextbox>();
             foreach (var group in Groups)
             {
                 y = 33;
@@ -121,7 +121,9 @@ namespace GhostRider.Tournament.Ui
                         LocationX = x,
                         LocationY = y,
                         Name = match.Key+"Left",
-                        Textboxes = TextBoxList
+                        Textboxes = TextBoxList,
+                        Owner = match.Value.Left.Name,
+                        Pair = match.Key
                     });
 
                     AddTextbox(new TextBoxEntity
@@ -129,7 +131,9 @@ namespace GhostRider.Tournament.Ui
                         LocationX = x+40,
                         LocationY = y,
                         Name = match.Key+"Right",
-                        Textboxes = TextBoxList
+                        Textboxes = TextBoxList,
+                        Owner = match.Value.Right.Name,
+                        Pair = match.Key
                     });
 
                     AddLabel(new LabelEntity
@@ -158,11 +162,21 @@ namespace GhostRider.Tournament.Ui
 
         protected void AddTextbox(TextBoxEntity info)
         {
-            TextBox tb = new TextBox();
+            MatchTextbox tb = new MatchTextbox(info.Owner, info.Pair);
             TextBoxList.Add(info.Name, tb);
             tb.Location = new Point(info.LocationX + 80, info.LocationY);
             tb.Size = new System.Drawing.Size(TextBoxEntity.SizeX, TextBoxEntity.SizeY);
             Controls.Add(tb);
+        }
+
+        private void GroupAggregate_Click(object sender, EventArgs e)
+        {
+            MatchesManager MatchesManager = new MatchesManager(Groups);
+
+            foreach (var textbox in TextBoxList)
+            {
+                //MatchesManager.AcceptScore();
+            }
         }
 
         /*private Label label1;
