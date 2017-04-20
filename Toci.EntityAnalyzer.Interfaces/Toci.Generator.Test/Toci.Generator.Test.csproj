@@ -51,11 +51,44 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Toci.EntityAnalyzer.Tests\Parser\EntityAnalyzerParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator\Toci.EntityAnalyzer.UiGenerator.csproj">
-      <Project>{09c6dc77-02d0-48a1-8353-06d24b0cc84b}</Project>
-      <Name>Toci.EntityAnalyzer.UiGenerator</Name>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.BllGenerator.Interfaces\Toci.EntityAnalyzer.BllGenerator.Interfaces.csproj">
+      <Project>{11da77ea-2468-44ea-8cb1-a15231bffea0}</Project>
+      <Name>Toci.EntityAnalyzer.BllGenerator.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.BllGenerator\Toci.EntityAnalyzer.BllGenerator.csproj">
+      <Project>{cb44f4a2-189d-44cd-8d19-386100d678c6}</Project>
+      <Name>Toci.EntityAnalyzer.BllGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.DalGenerator.Interfaces\Toci.EntityAnalyzer.DalGenerator.Interfaces.csproj">
+      <Project>{b9616a3b-6ec0-4dee-a025-a0518c6b5f34}</Project>
+      <Name>Toci.EntityAnalyzer.DalGenerator.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.DalGenerator\Toci.EntityAnalyzer.DalGenerator.csproj">
+      <Project>{f7735285-5163-4415-ba97-47b5410a8c0c}</Project>
+      <Name>Toci.EntityAnalyzer.DalGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.Interfaces\Toci.EntityAnalyzer.Interfaces.csproj">
+      <Project>{9283c2ec-fddf-43c6-8055-1ba37063293d}</Project>
+      <Name>Toci.EntityAnalyzer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator.Interfaces\Toci.EntityAnalyzer.UiGenerator.Interfaces.csproj">
+      <Project>{faf757a0-713c-467c-8ded-c6085dd1fe59}</Project>
+      <Name>Toci.EntityAnalyzer.UiGenerator.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer\Toci.EntityAnalyzer.csproj">
+      <Project>{63c18295-5475-42af-bcce-93bb76d4e43c}</Project>
+      <Name>Toci.EntityAnalyzer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.Generator.Core.Interfaces\Toci.Generator.Core.Interfaces.csproj">
+      <Project>{de6cc9f2-d148-46a5-b449-6c7efef0cc0f}</Project>
+      <Name>Toci.Generator.Core.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.Generator.Core\Toci.Generator.Core.csproj">
+      <Project>{323fa7e5-61f9-4e1c-9c3a-4ce84185b5ab}</Project>
+      <Name>Toci.Generator.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

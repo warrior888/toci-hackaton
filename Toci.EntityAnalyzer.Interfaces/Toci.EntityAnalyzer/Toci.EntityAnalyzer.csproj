@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Entities\ComplexEntity.cs" />
     <Compile Include="Entities\ComplexProperty.cs" />
+    <Compile Include="Entities\CtParsed.cs" />
     <Compile Include="Entities\ModelFieldMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\ClassFileStoreManager.cs" />

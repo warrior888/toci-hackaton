@@ -20,8 +20,9 @@ namespace Toci.EntityAnalyzer.Interfaces.Parametrization
         public const string MetadataCloseBracket = "]";
         public const string MetadataDelimiter = ":";
         public const string MetadataSeparationDelimiter = "|";
-        public const string RowsDelimiter = "/";
+        public const string RowsDelimiter = "\n";
         public const string Comment = "--";
+        public const string CtSpaceDelimiter = " ";
 
         public const string FodfLfffDelimiter = "#";
 
