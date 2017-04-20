@@ -173,9 +173,17 @@ namespace GhostRider.Tournament.Ui
         {
             MatchesManager MatchesManager = new MatchesManager(Groups);
 
-            foreach (var textbox in TextBoxList)
+            var grouped = TextBoxList.GroupBy(m => m.Value.MatchPair);
+
+            foreach (var textboxes in grouped)
             {
-                //MatchesManager.AcceptScore();
+                var firstPlayerTb = textboxes.First();
+                var secondPlayerTb = textboxes.Skip(1).First();
+
+                if (!string.IsNullOrEmpty(firstPlayerTb.Value.Text) && !string.IsNullOrEmpty(secondPlayerTb.Value.Text))
+                {
+                    MatchesManager.AcceptScore(int.Parse(firstPlayerTb.Value.Text), int.Parse(secondPlayerTb.Value.Text), firstPlayerTb.Value.MatchPair);
+                }
             }
         }
 
