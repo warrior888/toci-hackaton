@@ -27,6 +27,7 @@ namespace GhostRider.Tournament.Ui
         protected List<Label> GroupsLabels = new List<Label>();
         protected List<Label> MatchesLabels = new List<Label>();
         private int X;
+        private int Y;
         protected Dictionary<string, MatchTextbox> TextBoxList = new Dictionary<string, MatchTextbox>();
 
         public Tournament()
@@ -61,9 +62,14 @@ namespace GhostRider.Tournament.Ui
                 {
                     Controls.Remove(groupLabel);
                 }
-                
 
+                foreach (var textBoxes in TextBoxList)
+                {
+                    Controls.Remove(textBoxes.Value);
+                }
+                
             }
+
             groupsCount = int.Parse(groupsCountTextbox.Text);
             DrawGroups();
             
@@ -78,17 +84,11 @@ namespace GhostRider.Tournament.Ui
 
                 foreach (var TournamentParticipants in group.Value.Group)
                 {
-                    AddLabel(new LabelEntity
-                    {
-                        Labels = GroupsLabels,
-                        LocationX = x,
-                        LocationY =  y,
-                        Text = TournamentParticipants.Value.Name
-                    });
+                    AddLabel(new LabelEntity{Labels = GroupsLabels, LocationX = x, LocationY =  y, Text = TournamentParticipants.Value.Name});
                     y += 23;
                 }
-
                 x += sizeX;
+                UpdateY(y);
             }
             X = x;
             PrintMatches();
@@ -108,44 +108,17 @@ namespace GhostRider.Tournament.Ui
                 y = 33;
                 foreach (var match in group.Value.Matches)
                 {
-                    AddLabel(new LabelEntity
-                    {
-                        Labels = MatchesLabels,
-                        LocationX = x,
-                        LocationY = y,
-                        Text = match.Value.Left.Name
-                    });
+                    AddLabel(new LabelEntity{Labels = MatchesLabels,  LocationX = x, LocationY = y, Text = match.Value.Left.Name});
 
-                    AddTextbox(new TextBoxEntity
-                    {
-                        LocationX = x,
-                        LocationY = y,
-                        Name = match.Key+"Left",
-                        Textboxes = TextBoxList,
-                        Owner = match.Value.Left.Name,
-                        Pair = match.Key
-                    });
+                    AddTextbox(new TextBoxEntity{LocationX = x, LocationY = y, Name = match.Key+"Left", Textboxes = TextBoxList, Owner = match.Value.Left.Name, Pair = match.Key});
 
-                    AddTextbox(new TextBoxEntity
-                    {
-                        LocationX = x+40,
-                        LocationY = y,
-                        Name = match.Key+"Right",
-                        Textboxes = TextBoxList,
-                        Owner = match.Value.Right.Name,
-                        Pair = match.Key
-                    });
+                    AddTextbox(new TextBoxEntity{LocationX = x + 40, LocationY = y, Name = match.Key+"Right", Textboxes = TextBoxList, Owner = match.Value.Right.Name, Pair = match.Key});
 
-                    AddLabel(new LabelEntity
-                    {
-                        Labels = MatchesLabels,
-                        LocationX = x + 160,
-                        LocationY = y,
-                        Text = match.Value.Right.Name
-                    });
+                    AddLabel(new LabelEntity{Labels = MatchesLabels, LocationX = x + 160, LocationY = y, Text = match.Value.Right.Name});
                     y += 23;
                 }
                 x += 240;
+               UpdateY(y);
             }
             
         }
@@ -186,6 +159,34 @@ namespace GhostRider.Tournament.Ui
                 }
             }
         }
+
+        private void FillUp_Click(object sender, EventArgs e)
+        {
+            Random r = new Random((int)DateTime.Now.Ticks);
+            foreach (var item in TextBoxList)
+            {
+                item.Value.Text = r.Next(1, 8).ToString();
+            }
+        }
+
+        private void trophySystem_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupSystem_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateY(int currentY)
+        {
+            if (currentY > Y)
+            {
+                Y = currentY;
+            }
+        }
+
 
         /*private Label label1;
     this.label1 = new System.Windows.Forms.Label();

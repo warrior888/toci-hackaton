@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GhostRider.Tournament.Management.Entities;
 
 namespace GhostRider.Tournament.Management.Managers
@@ -20,7 +21,27 @@ namespace GhostRider.Tournament.Management.Managers
                 {
                     if (match.Value.LeftScore == match.Value.RightScore)
                     {
+                        Groups[tournamentGroup.Key].Group[match.Value.Left.Name].Score.Draw++;
+                        Groups[tournamentGroup.Key].Group[match.Value.Left.Name].Score.Points += match.Value.LeftScore;
                         
+                        Groups[tournamentGroup.Key].Group[match.Value.Right.Name].Score.Draw++;
+                        Groups[tournamentGroup.Key].Group[match.Value.Right.Name].Score.Points += match.Value.RightScore;
+                    }
+                    if (match.Value.LeftScore > match.Value.RightScore)
+                    {
+                        Groups[tournamentGroup.Key].Group[match.Value.Left.Name].Score.Won++;
+                        Groups[tournamentGroup.Key].Group[match.Value.Left.Name].Score.Points += match.Value.LeftScore;
+
+                        Groups[tournamentGroup.Key].Group[match.Value.Right.Name].Score.Lost++;
+                        Groups[tournamentGroup.Key].Group[match.Value.Right.Name].Score.Points += match.Value.RightScore;
+                    }
+                    else
+                    {
+                        Groups[tournamentGroup.Key].Group[match.Value.Left.Name].Score.Lost++;
+                        Groups[tournamentGroup.Key].Group[match.Value.Left.Name].Score.Points += match.Value.LeftScore;
+
+                        Groups[tournamentGroup.Key].Group[match.Value.Right.Name].Score.Won++;
+                        Groups[tournamentGroup.Key].Group[match.Value.Right.Name].Score.Points += match.Value.RightScore;
                     }
                 }
             }

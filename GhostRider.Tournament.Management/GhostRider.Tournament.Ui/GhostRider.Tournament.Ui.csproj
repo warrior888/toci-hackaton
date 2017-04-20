@@ -49,6 +49,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Entities\TextBoxEntity.cs" />
+    <Compile Include="Entities\TournamentParticipantsRenderer.cs" />
     <Compile Include="Tournament.cs">
       <SubType>Form</SubType>
     </Compile>
