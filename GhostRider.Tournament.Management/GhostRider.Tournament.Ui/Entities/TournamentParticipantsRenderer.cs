@@ -29,7 +29,7 @@ namespace GhostRider.Tournament.Ui.Entities
         {
             GroupManager.CreateMatches(Groups);
 
-            int x = X + 63;
+            int x = X + SizeX;
             int y;
             int sizeX = 90;
 

@@ -15,7 +15,7 @@ namespace GhostRider.Tournament.Management.Managers
             {
                 if (!result.ContainsKey(participant))
                 {
-                    result.Add(participant, new TournamentParticipant { Name = participant });
+                    result.Add(participant, new TournamentParticipant { Name = participant, Score = new TournamentScore()});
                 }
             }
 

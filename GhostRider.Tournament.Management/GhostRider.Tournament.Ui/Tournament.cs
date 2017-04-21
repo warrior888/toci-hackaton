@@ -26,9 +26,9 @@ namespace GhostRider.Tournament.Ui
         protected GroupsManager GroupManager = new GroupsManager();
         private int groupsCount = 1;
         protected List<Label> MatchesLabels = new List<Label>();
-        private int X;
+        private int X = startX;
         private const int startX = 13;
-        const int startY = 33;
+        private int startY = 33;
         private const int progressY = 23;
         int sizeX = 90;
         protected TournamentParticipantsRenderer Renderer = new TournamentParticipantsRenderer();
@@ -53,7 +53,7 @@ namespace GhostRider.Tournament.Ui
         {
             if (!Participants.ContainsKey(participantTextbox.Text))
             {
-                Participants.Add(participantTextbox.Text, new TournamentParticipant {Name = participantTextbox.Text});
+                Participants.Add(participantTextbox.Text, new TournamentParticipant {Name = participantTextbox.Text, Score = new TournamentScore()});
                 participantTextbox.Text = "";
             }
         }
@@ -93,7 +93,16 @@ namespace GhostRider.Tournament.Ui
 
         private void trophySystem_CheckedChanged(object sender, EventArgs e)
         {
-            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(Groups.Select(m => m.Value), AddParticipantLabel);
+            ITournamentGroup finalGroup = new TournamentGroup { Group = new Dictionary<string, ITournamentParticipant>()};
+
+            foreach (var group in Groups)
+            {
+                var element = group.Value.Group.OrderBy(m => m.Value.Score).Last();
+
+                finalGroup.Group.Add(element.Key, element.Value);
+            }
+
+            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(new [] { finalGroup }, AddParticipantLabel);
         }
 
         private void groupSystem_CheckedChanged(object sender, EventArgs e)
@@ -110,7 +119,7 @@ namespace GhostRider.Tournament.Ui
             foreach (var group in groups)
             {
                 AddTournamentParticipantsLabels(group.Group.Select(m => m.Value).ToList(), addLabels, y, x);
-                x = +sizeX;
+                x += sizeX;
             }
             X = x;
         }
@@ -121,14 +130,16 @@ namespace GhostRider.Tournament.Ui
             
             //foreach (var group in groups)
             //{
-            //    int Y = y;
+                int Y = y;
 
                 foreach (TParticipant TournamentParticipants in groups)
                 {
-                    addLabels(TournamentParticipants, x, y);
+                    addLabels(TournamentParticipants, x, Y);
                     // Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = Y, Text = TournamentParticipants.Value.Name }, Controls);
-                    //        Y += progressY;
+                            Y += progressY;
                 }
+
+            startY = Y;
             //    x += sizeX;
             //}
             //X = x;
@@ -151,6 +162,8 @@ namespace GhostRider.Tournament.Ui
                 }
             }
 
+            ScoreManager scoreManager = new ScoreManager(Groups);
+            scoreManager.CalculateScores();
         }
 
         protected virtual void AddParticipantLabel(ITournamentParticipant participant,int x, int y)
