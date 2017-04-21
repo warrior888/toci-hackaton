@@ -1,9 +1,11 @@
-﻿namespace GhostRider.Tournament.Management.Entities
+﻿using GhostRider.Tournament.Management.Interfaces.Entities;
+
+namespace GhostRider.Tournament.Management.Entities
 {
-    public class TournamentParticipant
+    public class TournamentParticipant : ITournamentParticipant
     {
         public string Name { get; set; }
 
-        public TournamentScore Score { get; set; }
+        public ITournamentScore Score { get; set; }
     }
 }

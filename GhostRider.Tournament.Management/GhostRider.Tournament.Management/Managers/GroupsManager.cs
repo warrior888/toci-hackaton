@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GhostRider.Tournament.Management.Entities;
+using GhostRider.Tournament.Management.Interfaces.Entities;
 
 namespace GhostRider.Tournament.Management.Managers
 {
@@ -9,7 +10,7 @@ namespace GhostRider.Tournament.Management.Managers
         {
             foreach (var group in groups)
             {
-                group.Value.Matches = new Dictionary<string, TournamentOponents>();
+                group.Value.Matches = new Dictionary<string, ITournamentOponents>();
 
                 foreach (var tournamentParticipantA in group.Value.Group)
                 {

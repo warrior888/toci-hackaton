@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using GhostRider.Tournament.Management.Entities;
+using GhostRider.Tournament.Management.Interfaces.Entities;
 using GhostRider.Tournament.Management.Managers;
 using GhostRider.Tournament.Management.Test;
 using GhostRider.Tournament.Ui.Entities;
@@ -64,7 +65,7 @@ namespace GhostRider.Tournament.Ui
             groupsCount = int.Parse(groupsCountTextbox.Text);
             DrawGroups();
 
-            AddTournamentParticipantsLabels(Groups, startY);
+            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(Groups.Select(m => m.Value), AddParticipantLabel);
             
             PrintMatches();
         }
@@ -92,7 +93,7 @@ namespace GhostRider.Tournament.Ui
 
         private void trophySystem_CheckedChanged(object sender, EventArgs e)
         {
-            AddTournamentParticipantsLabels<List<List<TournamentGroup>>, TournamentParticipant>(Groups.Select(m => m.Value).Select(m=> m.Group), AddParticipantLabel);
+            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(Groups.Select(m => m.Value), AddParticipantLabel);
         }
 
         private void groupSystem_CheckedChanged(object sender, EventArgs e)
@@ -100,29 +101,31 @@ namespace GhostRider.Tournament.Ui
 
         }
 
-        protected virtual void AddTournamentParticipantsLabels<TGroup,TParticipant>(IEnumerable<IEnumerable<TGroup>> group, Action<TParticipant, int, int> addLabels)
+        protected virtual void AddTournamentParticipantsLabels<TGroup, TParticipant>(IEnumerable<TGroup> groups, Action<ITournamentParticipant, int, int> addLabels) 
+            where TGroup : ITournamentGroup 
+            where TParticipant : ITournamentParticipant
         {
             int x = X;
             int y = startY;
-            foreach (var groups in group)
+            foreach (var group in groups)
             {
-                AddTournamentParticipantsLabels(groups, addLabels, y, x);
+                AddTournamentParticipantsLabels(group.Group.Select(m => m.Value).ToList(), addLabels, y, x);
                 x = +sizeX;
             }
             X = x;
         }
 
 
-        protected virtual void AddTournamentParticipantsLabels<TGroup>(IEnumerable<TGroup> groups, Action<TGroup, int, int> addLabels , int y, int x) 
+        protected virtual void AddTournamentParticipantsLabels<TParticipant>(List<TParticipant> groups, Action<TParticipant, int, int> addLabels, int y, int x) where TParticipant : ITournamentParticipant
         {
             
             //foreach (var group in groups)
             //{
             //    int Y = y;
 
-                foreach (var TournamentParticipants in groups)
+                foreach (TParticipant TournamentParticipants in groups)
                 {
-                    addLabels(TournamentParticipants,x,y);
+                    addLabels(TournamentParticipants, x, y);
                     // Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = Y, Text = TournamentParticipants.Value.Name }, Controls);
                     //        Y += progressY;
                 }
@@ -150,7 +153,7 @@ namespace GhostRider.Tournament.Ui
 
         }
 
-        protected virtual void AddParticipantLabel(TournamentParticipant participant,int x, int y)
+        protected virtual void AddParticipantLabel(ITournamentParticipant participant,int x, int y)
         {
             Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = y, Text = participant.Name }, Controls);
         }

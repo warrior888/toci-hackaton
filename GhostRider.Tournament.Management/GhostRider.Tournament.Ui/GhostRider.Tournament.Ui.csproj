@@ -84,6 +84,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GhostRider.Tournament.Management.Interfaces\GhostRider.Tournament.Management.Interfaces.csproj">
+      <Project>{23902ed7-7888-45b5-a924-d83e6b9bba80}</Project>
+      <Name>GhostRider.Tournament.Management.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GhostRider.Tournament.Management.Test\GhostRider.Tournament.Management.Test.csproj">
       <Project>{919e780c-0d0c-493b-bd1b-3d1f927fee1d}</Project>
       <Name>GhostRider.Tournament.Management.Test</Name>

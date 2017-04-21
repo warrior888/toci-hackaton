@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9148B8E6-9280-4866-B17E-971FC3002E82}</ProjectGuid>
+    <ProjectGuid>{23902ED7-7888-45B5-A924-D83E6B9BBA80}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GhostRider.Tournament.Management</RootNamespace>
-    <AssemblyName>GhostRider.Tournament.Management</AssemblyName>
+    <RootNamespace>GhostRider.Tournament.Management.Interfaces</RootNamespace>
+    <AssemblyName>GhostRider.Tournament.Management.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,22 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\TournamentGroup.cs" />
-    <Compile Include="Entities\TournamentOponents.cs" />
-    <Compile Include="Entities\TournamentParticipant.cs" />
-    <Compile Include="Entities\TournamentScore.cs" />
-    <Compile Include="Managers\GroupsManager.cs" />
-    <Compile Include="Managers\MatchesManager.cs" />
-    <Compile Include="Managers\ParticipantsManager.cs" />
-    <Compile Include="Managers\ScoreManager.cs" />
+    <Compile Include="Entities\ITournamentGroup.cs" />
+    <Compile Include="Entities\ITournamentOponents.cs" />
+    <Compile Include="Entities\ITournamentParticipant.cs" />
+    <Compile Include="Entities\ITournamentScore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GhostRider.Tournament.Management.Interfaces\GhostRider.Tournament.Management.Interfaces.csproj">
-      <Project>{23902ed7-7888-45b5-a924-d83e6b9bba80}</Project>
-      <Name>GhostRider.Tournament.Management.Interfaces</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

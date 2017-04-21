@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GhostRider.Tournament.Management.Entities;
+using GhostRider.Tournament.Management.Interfaces.Entities;
 
 namespace GhostRider.Tournament.Management.Managers
 {
@@ -41,7 +42,7 @@ namespace GhostRider.Tournament.Management.Managers
                 }
                 else
                 {
-                    result.Add(groupNumber, new TournamentGroup { Group = new Dictionary<string, TournamentParticipant> { { name, allParticipants[name] } } });
+                    result.Add(groupNumber, new TournamentGroup { Group = new Dictionary<string, ITournamentParticipant> { { name, allParticipants[name] } } });
                 }
 
                 allParticipants.Remove(name);
