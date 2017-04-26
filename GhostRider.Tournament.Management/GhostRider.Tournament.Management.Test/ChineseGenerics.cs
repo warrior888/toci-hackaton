@@ -27,7 +27,11 @@ namespace Euvic.Generator.Core.Test.Poc
     {
         public void DoSomething(IBaseType<BGenericType> parameter)
         {
-            DoSomething((IBaseType<AGenericType>)parameter);
+            IBaseType<AGenericType> w1 = new BaseWhatever();
+
+            w1.Field = parameter.Field; // automapper
+
+            DoSomething(w1);
         }
     }
 
@@ -35,11 +39,19 @@ namespace Euvic.Generator.Core.Test.Poc
 
     interface BGenericType : AGenericType { }
 
-    class BaseWhatever : IBaseType<AGenericType> { }
+    class BaseWhatever : IBaseType<AGenericType>
+    {
+        public string Field { get; set; }
+    }
 
 
-    class AnotherWhatever : IBaseType<BGenericType> { }
+    class AnotherWhatever : IBaseType<BGenericType> {
+        public string Field { get; set; }
+    }
 
-    interface IBaseType<TResult> { }
+    interface IBaseType<TResult>
+    {
+        string Field { get; set; }
+    }
 
 }

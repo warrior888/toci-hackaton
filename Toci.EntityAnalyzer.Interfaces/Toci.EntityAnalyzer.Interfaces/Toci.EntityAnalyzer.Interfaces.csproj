@@ -48,6 +48,13 @@
     <Compile Include="Entities\IModelColumnData.cs" />
     <Compile Include="Entities\IModelFieldMetadata.cs" />
     <Compile Include="Entities\IComplexProperty.cs" />
+    <Compile Include="Entities\IParseResult.cs" />
+    <Compile Include="Entities\Parsing\IDbSource.cs" />
+    <Compile Include="Entities\Parsing\IExcelFileSource.cs" />
+    <Compile Include="Entities\Parsing\IFileSource.cs" />
+    <Compile Include="Entities\Parsing\ISource.cs" />
+    <Compile Include="Entities\Parsing\ISourceParser.cs" />
+    <Compile Include="Entities\Parsing\ITextFileSource.cs" />
     <Compile Include="Parametrization\CtConsts.cs" />
     <Compile Include="Parametrization\FieldKinds.cs" />
     <Compile Include="Parametrization\FormOrientation.cs" />
@@ -58,7 +65,10 @@
     <Compile Include="Tools\IComplexParser.cs" />
     <Compile Include="Tools\ICtParser.cs" />
     <Compile Include="Tools\IEntityPropertyReader.cs" />
+    <Compile Include="Tools\IExcelFIleParser.cs" />
+    <Compile Include="Tools\IFIleParser.cs" />
     <Compile Include="Tools\IModelFieldMetadataComplexParser.cs" />
+    <Compile Include="Tools\ITextFIleParser.cs" />
     <Compile Include="Validation\ICustomValidator.cs" />
     <Compile Include="Validation\IValidationResult.cs" />
     <Compile Include="Validation\IValidator.cs" />
