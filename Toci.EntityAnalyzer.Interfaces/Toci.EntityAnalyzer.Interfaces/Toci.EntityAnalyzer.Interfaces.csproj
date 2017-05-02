@@ -52,6 +52,7 @@
     <Compile Include="Entities\Parsing\IDbSource.cs" />
     <Compile Include="Entities\Parsing\IExcelFileSource.cs" />
     <Compile Include="Entities\Parsing\IFileSource.cs" />
+    <Compile Include="Entities\Parsing\IPostCodeEntity.cs" />
     <Compile Include="Entities\Parsing\ISource.cs" />
     <Compile Include="Entities\Parsing\ISourceParser.cs" />
     <Compile Include="Entities\Parsing\ITextFileSource.cs" />

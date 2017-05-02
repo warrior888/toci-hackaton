@@ -18,12 +18,14 @@ namespace Toci.EntityAnalyzer.Tools
             IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(file);
             
             DataSet result = excelReader.AsDataSet();
-
-            foreach (var row in result.Tables[0].Rows)
+            foreach (var sheet in source.Sheets)
             {
                 
-            }
+                foreach (var row in result.Tables[sheet].Rows)
+                {
 
+                }
+            }
             return null;
         }
 
