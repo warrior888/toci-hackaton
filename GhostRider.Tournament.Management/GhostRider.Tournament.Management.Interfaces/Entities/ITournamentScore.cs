@@ -1,6 +1,6 @@
 ﻿namespace GhostRider.Tournament.Management.Interfaces.Entities
 {
-    public interface ITournamentScore
+    public interface ITournamentScore // IComparable
     {
         int Won { get; set; }
 

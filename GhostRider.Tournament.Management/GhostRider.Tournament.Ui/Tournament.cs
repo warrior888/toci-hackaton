@@ -29,6 +29,7 @@ namespace GhostRider.Tournament.Ui
         private int X = startX;
         private const int startX = 13;
         private int startY = 33;
+        private const int Y = 33;
         private const int progressY = 23;
         int sizeX = 90;
         protected TournamentParticipantsRenderer Renderer = new TournamentParticipantsRenderer();
@@ -67,12 +68,12 @@ namespace GhostRider.Tournament.Ui
 
             AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(Groups.Select(m => m.Value), AddParticipantLabel);
             
-            PrintMatches();
+            PrintMatches(Groups, X, Y);
         }
 
-        private void PrintMatches()
+        private void PrintMatches(Dictionary<int, TournamentGroup> Groups, int X, int startY)
         {
-            Renderer.RenderMatches(Groups, Controls, X);
+            Renderer.RenderMatches(Groups, Controls, X, startY);
         }
         
 
@@ -93,21 +94,22 @@ namespace GhostRider.Tournament.Ui
 
         private void trophySystem_CheckedChanged(object sender, EventArgs e)
         {
-            ITournamentGroup finalGroup = new TournamentGroup { Group = new Dictionary<string, ITournamentParticipant>()};
-
-            foreach (var group in Groups)
-            {
-                var element = group.Value.Group.OrderBy(m => m.Value.Score).Last();
-
-                finalGroup.Group.Add(element.Key, element.Value);
-            }
-
-            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(new [] { finalGroup }, AddParticipantLabel);
+            
         }
 
         private void groupSystem_CheckedChanged(object sender, EventArgs e)
         {
+            TournamentGroup finalGroup = new TournamentGroup { Group = new Dictionary<string, ITournamentParticipant>() };
 
+            foreach (var group in Groups)
+            {
+                var element = group.Value.Group.OrderBy(m => m.Value.Score.Points).Last();
+
+                finalGroup.Group.Add(element.Key, element.Value);
+            }
+            int tempY = startY;
+            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(new[] { finalGroup }, AddParticipantWithScoreLabel);
+            PrintMatches(new Dictionary<int, TournamentGroup> { { 1, finalGroup } }, X, tempY);
         }
 
         protected virtual void AddTournamentParticipantsLabels<TGroup, TParticipant>(IEnumerable<TGroup> groups, Action<ITournamentParticipant, int, int> addLabels) 
@@ -127,22 +129,15 @@ namespace GhostRider.Tournament.Ui
 
         protected virtual void AddTournamentParticipantsLabels<TParticipant>(List<TParticipant> groups, Action<TParticipant, int, int> addLabels, int y, int x) where TParticipant : ITournamentParticipant
         {
-            
-            //foreach (var group in groups)
-            //{
-                int Y = y;
+            int Y = y;
 
-                foreach (TParticipant TournamentParticipants in groups)
-                {
-                    addLabels(TournamentParticipants, x, Y);
-                    // Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = Y, Text = TournamentParticipants.Value.Name }, Controls);
-                            Y += progressY;
-                }
+            foreach (TParticipant TournamentParticipants in groups)
+            {
+                addLabels(TournamentParticipants, x, Y);
+                Y += progressY;
+            }
 
             startY = Y;
-            //    x += sizeX;
-            //}
-            //X = x;
         }
 
         protected virtual void CalculateScore()
@@ -169,6 +164,11 @@ namespace GhostRider.Tournament.Ui
         protected virtual void AddParticipantLabel(ITournamentParticipant participant,int x, int y)
         {
             Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = y, Text = participant.Name }, Controls);
+        }
+
+        protected virtual void AddParticipantWithScoreLabel(ITournamentParticipant participant, int x, int y)
+        {
+            Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = y, Text = participant.Name + ": " + participant.Score.Points }, Controls);
         }
         /*private Label label1;
     this.label1 = new System.Windows.Forms.Label();

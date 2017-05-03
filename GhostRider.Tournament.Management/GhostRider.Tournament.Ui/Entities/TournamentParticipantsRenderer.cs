@@ -25,18 +25,16 @@ namespace GhostRider.Tournament.Ui.Entities
         public const int SizeX = 80;
         public const int SizeY = 13;
 
-        public virtual void RenderMatches(Dictionary<int, TournamentGroup> Groups, Control.ControlCollection Control, int X)
+        public virtual void RenderMatches(Dictionary<int, TournamentGroup> Groups, Control.ControlCollection Control, int X, int y)
         {
             GroupManager.CreateMatches(Groups);
 
             int x = X + SizeX;
-            int y;
-            int sizeX = 90;
-
+            int myY = y;
             TextBoxList = new Dictionary<string, MatchTextbox>();
             foreach (var group in Groups)
             {
-                y = 33;
+                y = myY;
                 foreach (var match in group.Value.Matches)
                 {
                     AddLabel(new LabelEntity {LocationX = x, LocationY = y, Text = match.Value.Left.Name }, Control);
