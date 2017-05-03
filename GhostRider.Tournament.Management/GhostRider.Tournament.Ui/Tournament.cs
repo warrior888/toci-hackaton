@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using GhostRider.Tournament.Management.Entities;
+using GhostRider.Tournament.Management.Interfaces.Entities;
 using GhostRider.Tournament.Management.Managers;
 using GhostRider.Tournament.Management.Test;
 using GhostRider.Tournament.Ui.Entities;
@@ -24,10 +25,15 @@ namespace GhostRider.Tournament.Ui
         protected ParticipantsManager ParticipantsManager = new ParticipantsManager();
         protected GroupsManager GroupManager = new GroupsManager();
         private int groupsCount = 1;
-        protected List<Label> GroupsLabels = new List<Label>();
         protected List<Label> MatchesLabels = new List<Label>();
-        private int X;
-        protected Dictionary<string, MatchTextbox> TextBoxList = new Dictionary<string, MatchTextbox>();
+        private int X = startX;
+        private const int startX = 13;
+        private int startY = 33;
+        private const int Y = 33;
+        private const int progressY = 23;
+        int sizeX = 90;
+        protected TournamentParticipantsRenderer Renderer = new TournamentParticipantsRenderer();
+        
 
         public Tournament()
         {
@@ -48,137 +54,122 @@ namespace GhostRider.Tournament.Ui
         {
             if (!Participants.ContainsKey(participantTextbox.Text))
             {
-                Participants.Add(participantTextbox.Text, new TournamentParticipant {Name = participantTextbox.Text});
+                Participants.Add(participantTextbox.Text, new TournamentParticipant {Name = participantTextbox.Text, Score = new TournamentScore()});
                 participantTextbox.Text = "";
             }
         }
 
         private void drawGroupsButton_Click(object sender, EventArgs e)
         {
-            if(GroupsLabels.Count >0)
-            {
-                foreach (var groupLabel in GroupsLabels)
-                {
-                    Controls.Remove(groupLabel);
-                }
-                
-
-            }
+            Renderer.RemoveControls(Controls);
+            X = startX;
             groupsCount = int.Parse(groupsCountTextbox.Text);
             DrawGroups();
+
+            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(Groups.Select(m => m.Value), AddParticipantLabel);
             
-
-            int x = 13;
-            int y;
-            int sizeX = 90;
-
-            foreach (var group in Groups)
-            {
-                y = 33;
-
-                foreach (var TournamentParticipants in group.Value.Group)
-                {
-                    AddLabel(new LabelEntity
-                    {
-                        Labels = GroupsLabels,
-                        LocationX = x,
-                        LocationY =  y,
-                        Text = TournamentParticipants.Value.Name
-                    });
-                    y += 23;
-                }
-
-                x += sizeX;
-            }
-            X = x;
-            PrintMatches();
+            PrintMatches(Groups, X, Y);
         }
 
-        private void PrintMatches()
+        private void PrintMatches(Dictionary<int, TournamentGroup> Groups, int X, int startY)
         {
-            GroupManager.CreateMatches(Groups);
-
-            int x = X + 63;
-            int y;
-            int sizeX = 90;
-
-            TextBoxList = new Dictionary<string, MatchTextbox>();
-            foreach (var group in Groups)
-            {
-                y = 33;
-                foreach (var match in group.Value.Matches)
-                {
-                    AddLabel(new LabelEntity
-                    {
-                        Labels = MatchesLabels,
-                        LocationX = x,
-                        LocationY = y,
-                        Text = match.Value.Left.Name
-                    });
-
-                    AddTextbox(new TextBoxEntity
-                    {
-                        LocationX = x,
-                        LocationY = y,
-                        Name = match.Key+"Left",
-                        Textboxes = TextBoxList,
-                        Owner = match.Value.Left.Name,
-                        Pair = match.Key
-                    });
-
-                    AddTextbox(new TextBoxEntity
-                    {
-                        LocationX = x+40,
-                        LocationY = y,
-                        Name = match.Key+"Right",
-                        Textboxes = TextBoxList,
-                        Owner = match.Value.Right.Name,
-                        Pair = match.Key
-                    });
-
-                    AddLabel(new LabelEntity
-                    {
-                        Labels = MatchesLabels,
-                        LocationX = x + 160,
-                        LocationY = y,
-                        Text = match.Value.Right.Name
-                    });
-                    y += 23;
-                }
-                x += 240;
-            }
-            
+            Renderer.RenderMatches(Groups, Controls, X, startY);
         }
-
-        protected void AddLabel(LabelEntity info)
-        {
-            Label lb = new Label();
-            GroupsLabels.Add(lb);
-            lb.Text = info.Text;
-            lb.Location = new Point(info.LocationX, info.LocationY);
-            lb.Size = new System.Drawing.Size(LabelEntity.SizeX, LabelEntity.SizeY);
-            Controls.Add(lb);
-        }
-
-        protected void AddTextbox(TextBoxEntity info)
-        {
-            MatchTextbox tb = new MatchTextbox(info.Owner, info.Pair);
-            TextBoxList.Add(info.Name, tb);
-            tb.Location = new Point(info.LocationX + 80, info.LocationY);
-            tb.Size = new System.Drawing.Size(TextBoxEntity.SizeX, TextBoxEntity.SizeY);
-            Controls.Add(tb);
-        }
+        
 
         private void GroupAggregate_Click(object sender, EventArgs e)
         {
-            MatchesManager MatchesManager = new MatchesManager(Groups);
+            CalculateScore();
+            //AddTournamentParticipantsLabels(Groups);
+        }
 
-            foreach (var textbox in TextBoxList)
+        private void FillUp_Click(object sender, EventArgs e)
+        {
+            Random r = new Random((int)DateTime.Now.Ticks);
+            foreach (var item in Renderer.TextBoxList)
             {
-                //MatchesManager.AcceptScore();
+                item.Value.Text = r.Next(1, 8).ToString();
             }
         }
 
+        private void trophySystem_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void groupSystem_CheckedChanged(object sender, EventArgs e)
+        {
+            TournamentGroup finalGroup = new TournamentGroup { Group = new Dictionary<string, ITournamentParticipant>() };
+
+            foreach (var group in Groups)
+            {
+                var element = group.Value.Group.OrderBy(m => m.Value.Score.Points).Last();
+
+                finalGroup.Group.Add(element.Key, element.Value);
+            }
+            int tempY = startY;
+            AddTournamentParticipantsLabels<ITournamentGroup, ITournamentParticipant>(new[] { finalGroup }, AddParticipantWithScoreLabel);
+            PrintMatches(new Dictionary<int, TournamentGroup> { { 1, finalGroup } }, X, tempY);
+        }
+
+        protected virtual void AddTournamentParticipantsLabels<TGroup, TParticipant>(IEnumerable<TGroup> groups, Action<ITournamentParticipant, int, int> addLabels) 
+            where TGroup : ITournamentGroup 
+            where TParticipant : ITournamentParticipant
+        {
+            int x = X;
+            int y = startY;
+            foreach (var group in groups)
+            {
+                AddTournamentParticipantsLabels(group.Group.Select(m => m.Value).ToList(), addLabels, y, x);
+                x += sizeX;
+            }
+            X = x;
+        }
+
+
+        protected virtual void AddTournamentParticipantsLabels<TParticipant>(List<TParticipant> groups, Action<TParticipant, int, int> addLabels, int y, int x) where TParticipant : ITournamentParticipant
+        {
+            int Y = y;
+
+            foreach (TParticipant TournamentParticipants in groups)
+            {
+                addLabels(TournamentParticipants, x, Y);
+                Y += progressY;
+            }
+
+            startY = Y;
+        }
+
+        protected virtual void CalculateScore()
+        {
+            MatchesManager matchesManager = new MatchesManager(Groups);
+
+            var grouped = Renderer.TextBoxList.GroupBy(m => m.Value.MatchPair);
+
+            foreach (var textboxes in grouped)
+            {
+                var firstPlayerTb = textboxes.First();
+                var secondPlayerTb = textboxes.Skip(1).First();
+
+                if (!string.IsNullOrEmpty(firstPlayerTb.Value.Text) && !string.IsNullOrEmpty(secondPlayerTb.Value.Text))
+                {
+                    matchesManager.AcceptScore(int.Parse(firstPlayerTb.Value.Text), int.Parse(secondPlayerTb.Value.Text), firstPlayerTb.Value.MatchPair);
+                }
+            }
+
+            ScoreManager scoreManager = new ScoreManager(Groups);
+            scoreManager.CalculateScores();
+        }
+
+        protected virtual void AddParticipantLabel(ITournamentParticipant participant,int x, int y)
+        {
+            Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = y, Text = participant.Name }, Controls);
+        }
+
+        protected virtual void AddParticipantWithScoreLabel(ITournamentParticipant participant, int x, int y)
+        {
+            Renderer.AddLabel(new LabelEntity { LocationX = x, LocationY = y, Text = participant.Name + ": " + participant.Score.Points }, Controls);
+        }
         /*private Label label1;
     this.label1 = new System.Windows.Forms.Label();
     this.label1.AutoSize = true;

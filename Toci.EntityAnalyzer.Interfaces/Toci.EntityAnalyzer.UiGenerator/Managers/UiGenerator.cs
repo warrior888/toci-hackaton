@@ -16,9 +16,9 @@ namespace Toci.EntityAnalyzer.UiGenerator.Managers
             var controlEntities = new List<IControlEntity>();
             foreach (var complexProperty in complexEntity.ComplexProperties)
             {
-                var codeBehindEntity = codeBehindGenerator.Generate(complexProperty);
+                var codeBehindEntity = codeBehindGenerator.Generate(complexProperty.Value);
                 codeBehindEntities.Add(codeBehindEntity);
-                var controlEntity = controlGenerator.Generate(complexProperty, codeBehindEntity);
+                var controlEntity = controlGenerator.Generate(complexProperty.Value, codeBehindEntity);
                 controlEntities.Add(controlEntity);
             }
             var stringBuilder = new StringBuilder();

@@ -1,5 +1,13 @@
 ﻿-- [Orientation:Horizontal|ScreenId:12]
 create table Examples (
-	Id int primary key, -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5] /
-	
+	Id int primary key, -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5]
+	Test int not null, -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5]
+	Whatever varchar(15) -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5]
+);
+
+create table Test (
+	Id int primary key, -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5]
+	Test int, -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5]
+	Name varchar(100) not null, -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5]
+	Whatever varchar(15) -- [klucz1:wartosc1|tag:numer seryjny|fodf:pole1#pol2#pol3#pol4#pole5]
 );

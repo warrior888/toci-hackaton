@@ -11,5 +11,7 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
         string TableName { get; set; }
 
         List<string> Columns { get; set; }
+
+        List<string> ColumnsWithDetails { get; set; }
     }
 }

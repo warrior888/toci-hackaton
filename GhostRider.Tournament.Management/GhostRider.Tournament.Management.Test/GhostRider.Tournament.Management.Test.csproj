@@ -50,12 +50,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CoContra.cs" />
+    <Compile Include="ChineseGenerics.cs" />
+    <Compile Include="CoContraVariance\CoContravariancePoc.cs" />
+    <Compile Include="CoContraVariance\VariancesPocTest.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="ParticipantsManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GhostRider.Tournament.Management.Interfaces\GhostRider.Tournament.Management.Interfaces.csproj">
+      <Project>{23902ed7-7888-45b5-a924-d83e6b9bba80}</Project>
+      <Name>GhostRider.Tournament.Management.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GhostRider.Tournament.Management\GhostRider.Tournament.Management.csproj">
       <Project>{9148b8e6-9280-4866-b17e-971fc3002e82}</Project>
       <Name>GhostRider.Tournament.Management</Name>

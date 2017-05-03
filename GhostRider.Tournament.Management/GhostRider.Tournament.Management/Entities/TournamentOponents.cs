@@ -1,10 +1,12 @@
-﻿namespace GhostRider.Tournament.Management.Entities
-{
-    public class TournamentOponents
-    {
-        public TournamentParticipant Left { get; set; }
+﻿using GhostRider.Tournament.Management.Interfaces.Entities;
 
-        public TournamentParticipant Right { get; set; }
+namespace GhostRider.Tournament.Management.Entities
+{
+    public class TournamentOponents : ITournamentOponents
+    {
+        public ITournamentParticipant Left { get; set; }
+
+        public ITournamentParticipant Right { get; set; }
 
         public int LeftScore { get; set; }
 

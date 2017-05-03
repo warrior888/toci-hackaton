@@ -39,6 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tools\CodeClassRenderer.cs" />
+    <Compile Include="Tools\CodeGenerator.cs" />
+    <Compile Include="Tools\PostCodeGenerator\PostCodeClassRenderer.cs" />
+    <Compile Include="Tools\PostCodeGenerator\PostCodePropetiesRenderer.cs" />
+    <Compile Include="Tools\PostCodeGenerator\PostCodeSnippetParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,10 +70,6 @@
     <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator.Interfaces\Toci.EntityAnalyzer.UiGenerator.Interfaces.csproj">
       <Project>{faf757a0-713c-467c-8ded-c6085dd1fe59}</Project>
       <Name>Toci.EntityAnalyzer.UiGenerator.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator\Toci.EntityAnalyzer.UiGenerator.csproj">
-      <Project>{09c6dc77-02d0-48a1-8353-06d24b0cc84b}</Project>
-      <Name>Toci.EntityAnalyzer.UiGenerator</Name>
     </ProjectReference>
     <ProjectReference Include="..\Toci.EntityAnalyzer\Toci.EntityAnalyzer.csproj">
       <Project>{63c18295-5475-42af-bcce-93bb76d4e43c}</Project>

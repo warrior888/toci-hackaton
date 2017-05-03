@@ -8,7 +8,6 @@ namespace GhostRider.Tournament.Ui.Entities
         public string Text  { get; set; }
         public int LocationX { get; set; }
         public int LocationY { get; set; }
-        public List<Label> Labels { get; set; }
 
         public const int SizeX = 80;
         public const int SizeY = 13;

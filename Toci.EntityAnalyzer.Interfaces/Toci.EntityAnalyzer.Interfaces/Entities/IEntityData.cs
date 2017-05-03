@@ -8,7 +8,7 @@ namespace Toci.EntityAnalyzer.Interfaces.Entities
     /// </summary>
     public interface IEntityData
     {
-        string ClassName { get; set; }
+        string ClassName { get; set; } 
 
         string Name { get; set; }
 
