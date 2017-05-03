@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CoContra.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="ParticipantsManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
