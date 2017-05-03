@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GhostRider.Tournament.Management.Test.CoContraVariance
 {
-    [TestClass]
+    /*[TestClass]
     public class VariancesPocTest
     {
         [TestMethod]
@@ -95,5 +95,5 @@ namespace GhostRider.Tournament.Management.Test.CoContraVariance
 
             //test2.Add(new DieselSportCar());
         }
-    }
+    }*/
 }

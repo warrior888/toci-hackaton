@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beatacwiczenia", "Beatacwiczenia\Beatacwiczenia.csproj", "{FCCEFD56-3860-4C0C-B8DF-1FA7C72FA2F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "okno", "okno\okno.csproj", "{9C085E9A-D09D-42E9-A4CC-46112675CEA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCCEFD56-3860-4C0C-B8DF-1FA7C72FA2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCCEFD56-3860-4C0C-B8DF-1FA7C72FA2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCCEFD56-3860-4C0C-B8DF-1FA7C72FA2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCCEFD56-3860-4C0C-B8DF-1FA7C72FA2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C085E9A-D09D-42E9-A4CC-46112675CEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C085E9A-D09D-42E9-A4CC-46112675CEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C085E9A-D09D-42E9-A4CC-46112675CEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C085E9A-D09D-42E9-A4CC-46112675CEA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

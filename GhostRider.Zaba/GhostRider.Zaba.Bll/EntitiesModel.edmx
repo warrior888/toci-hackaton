@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Ghostrider.ZabaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ProductFeatures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeatureName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductFeaturesMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductFeaturesId" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductFeaturesValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductFeaturesMapId" Type="int" />
+          <Property Name="Value" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="SerialNumber" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__ProductFe__Produ__31EC6D26">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductFeaturesMap" Type="Self.ProductFeaturesMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductFeaturesMap">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductFe__Produ__32E0915F">
+          <End Role="ProductFeatures" Type="Self.ProductFeatures" Multiplicity="0..1" />
+          <End Role="ProductFeaturesMap" Type="Self.ProductFeaturesMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductFeatures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductFeaturesMap">
+              <PropertyRef Name="ProductFeaturesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductFe__Produ__35BCFE0A">
+          <End Role="ProductFeaturesMap" Type="Self.ProductFeaturesMap" Multiplicity="0..1" />
+          <End Role="ProductFeaturesValue" Type="Self.ProductFeaturesValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductFeaturesMap">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductFeaturesValue">
+              <PropertyRef Name="ProductFeaturesMapId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GhostriderZabaModelStoreContainer">
+          <EntitySet Name="ProductFeatures" EntityType="Self.ProductFeatures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductFeaturesMap" EntityType="Self.ProductFeaturesMap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductFeaturesValue" EntityType="Self.ProductFeaturesValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ProductFe__Produ__31EC6D26" Association="Self.FK__ProductFe__Produ__31EC6D26">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductFeaturesMap" EntitySet="ProductFeaturesMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductFe__Produ__32E0915F" Association="Self.FK__ProductFe__Produ__32E0915F">
+            <End Role="ProductFeatures" EntitySet="ProductFeatures" />
+            <End Role="ProductFeaturesMap" EntitySet="ProductFeaturesMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductFe__Produ__35BCFE0A" Association="Self.FK__ProductFe__Produ__35BCFE0A">
+            <End Role="ProductFeaturesMap" EntitySet="ProductFeaturesMap" />
+            <End Role="ProductFeaturesValue" EntitySet="ProductFeaturesValue" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Ghostrider.ZabaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProductFeatures" EntityType="Ghostrider.ZabaModel.ProductFeatures" />
+          <EntitySet Name="ProductFeaturesMap" EntityType="Ghostrider.ZabaModel.ProductFeaturesMap" />
+          <EntitySet Name="ProductFeaturesValue" EntityType="Ghostrider.ZabaModel.ProductFeaturesValue" />
+          <EntitySet Name="Products" EntityType="Ghostrider.ZabaModel.Products" />
+          <AssociationSet Name="FK__ProductFe__Produ__32E0915F" Association="Ghostrider.ZabaModel.FK__ProductFe__Produ__32E0915F">
+            <End Role="ProductFeatures" EntitySet="ProductFeatures" />
+            <End Role="ProductFeaturesMap" EntitySet="ProductFeaturesMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductFe__Produ__31EC6D26" Association="Ghostrider.ZabaModel.FK__ProductFe__Produ__31EC6D26">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductFeaturesMap" EntitySet="ProductFeaturesMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductFe__Produ__35BCFE0A" Association="Ghostrider.ZabaModel.FK__ProductFe__Produ__35BCFE0A">
+            <End Role="ProductFeaturesMap" EntitySet="ProductFeaturesMap" />
+            <End Role="ProductFeaturesValue" EntitySet="ProductFeaturesValue" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ProductFeatures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeatureName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProductFeaturesMap" Relationship="Ghostrider.ZabaModel.FK__ProductFe__Produ__32E0915F" FromRole="ProductFeatures" ToRole="ProductFeaturesMap" />
+        </EntityType>
+        <EntityType Name="ProductFeaturesMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ProductFeaturesId" Type="Int32" />
+          <NavigationProperty Name="ProductFeatures" Relationship="Ghostrider.ZabaModel.FK__ProductFe__Produ__32E0915F" FromRole="ProductFeaturesMap" ToRole="ProductFeatures" />
+          <NavigationProperty Name="Products" Relationship="Ghostrider.ZabaModel.FK__ProductFe__Produ__31EC6D26" FromRole="ProductFeaturesMap" ToRole="Products" />
+          <NavigationProperty Name="ProductFeaturesValue" Relationship="Ghostrider.ZabaModel.FK__ProductFe__Produ__35BCFE0A" FromRole="ProductFeaturesMap" ToRole="ProductFeaturesValue" />
+        </EntityType>
+        <EntityType Name="ProductFeaturesValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductFeaturesMapId" Type="Int32" />
+          <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProductFeaturesMap" Relationship="Ghostrider.ZabaModel.FK__ProductFe__Produ__35BCFE0A" FromRole="ProductFeaturesValue" ToRole="ProductFeaturesMap" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SerialNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProductFeaturesMap" Relationship="Ghostrider.ZabaModel.FK__ProductFe__Produ__31EC6D26" FromRole="Products" ToRole="ProductFeaturesMap" />
+        </EntityType>
+        <Association Name="FK__ProductFe__Produ__32E0915F">
+          <End Type="Ghostrider.ZabaModel.ProductFeatures" Role="ProductFeatures" Multiplicity="0..1" />
+          <End Type="Ghostrider.ZabaModel.ProductFeaturesMap" Role="ProductFeaturesMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductFeatures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductFeaturesMap">
+              <PropertyRef Name="ProductFeaturesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductFe__Produ__31EC6D26">
+          <End Type="Ghostrider.ZabaModel.Products" Role="Products" Multiplicity="0..1" />
+          <End Type="Ghostrider.ZabaModel.ProductFeaturesMap" Role="ProductFeaturesMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductFeaturesMap">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductFe__Produ__35BCFE0A">
+          <End Type="Ghostrider.ZabaModel.ProductFeaturesMap" Role="ProductFeaturesMap" Multiplicity="0..1" />
+          <End Type="Ghostrider.ZabaModel.ProductFeaturesValue" Role="ProductFeaturesValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductFeaturesMap">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductFeaturesValue">
+              <PropertyRef Name="ProductFeaturesMapId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GhostriderZabaModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ProductFeatures">
+            <EntityTypeMapping TypeName="Ghostrider.ZabaModel.ProductFeatures">
+              <MappingFragment StoreEntitySet="ProductFeatures">
+                <ScalarProperty Name="FeatureName" ColumnName="FeatureName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductFeaturesMap">
+            <EntityTypeMapping TypeName="Ghostrider.ZabaModel.ProductFeaturesMap">
+              <MappingFragment StoreEntitySet="ProductFeaturesMap">
+                <ScalarProperty Name="ProductFeaturesId" ColumnName="ProductFeaturesId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductFeaturesValue">
+            <EntityTypeMapping TypeName="Ghostrider.ZabaModel.ProductFeaturesValue">
+              <MappingFragment StoreEntitySet="ProductFeaturesValue">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ProductFeaturesMapId" ColumnName="ProductFeaturesMapId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Ghostrider.ZabaModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
