@@ -13,7 +13,7 @@ namespace Toci.EntityAnalyzer.Tools
     {
         protected virtual FileStream OpenFile(TSource source)
         {
-            return new FileStream(source.FilePath, FileMode.Open);
+            return new FileStream(source.FilePath+source.FileName, FileMode.Open);
         }
         
         public virtual IEnumerable<TParseResult> Parse(TSource source)
@@ -25,14 +25,14 @@ namespace Toci.EntityAnalyzer.Tools
 
         protected virtual IEnumerable<TParseResult> ParseResult(IEnumerable<TLine> dataset)
         {
-            List<TParseResult> ResultList = new List<TParseResult>();
+            List<TParseResult> resultList = new List<TParseResult>();
 
             foreach (var element in dataset)
             {
-                ResultList.Add(ParseLine(element));
+                resultList.Add(ParseLine(element));
             }
 
-            return ResultList;
+            return resultList;
         }
 
 

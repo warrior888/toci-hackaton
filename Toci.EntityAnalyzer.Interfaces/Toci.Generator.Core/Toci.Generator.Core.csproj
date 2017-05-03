@@ -39,6 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tools\CodeClassRenderer.cs" />
+    <Compile Include="Tools\CodeGenerator.cs" />
+    <Compile Include="Tools\PostCodeGenerator\PostCodeClassRenderer.cs" />
+    <Compile Include="Tools\PostCodeGenerator\PostCodePropetiesRenderer.cs" />
+    <Compile Include="Tools\PostCodeGenerator\PostCodeSnippetParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
