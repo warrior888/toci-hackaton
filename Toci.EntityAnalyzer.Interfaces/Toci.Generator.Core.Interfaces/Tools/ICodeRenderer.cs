@@ -6,7 +6,7 @@ using IClassCode = Toci.Generator.Core.Interfaces.Entities.IClassCode;
 namespace Toci.Generator.Core.Interfaces.Tools
 {
     public interface ICodeRenderer<in TCodeSnippet,in TParseResult> 
-        where TCodeSnippet : ICodeSnippet<IFileSource,IParseResult>
+        where TCodeSnippet : ICodeSnippet
         where TParseResult : IParseResult
     {
         ICodeFragment CreateCodeFragment(TParseResult parseResult, TCodeSnippet codeSnippet);

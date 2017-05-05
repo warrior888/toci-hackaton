@@ -1,0 +1,1 @@
+﻿{AccessModifier} {StaticConst} {Type} {Name} = {Value};

@@ -55,6 +55,7 @@
     <Compile Include="Toci.EntityAnalyzer.Tests\Parser\EntityAnalyzerParserTest.cs" />
     <Compile Include="Toci.EntityAnalyzer.Tests\Parser\ExclParserTest.cs" />
     <Compile Include="Toci.EntityAnalyzer.Tests\Parser\PostCodeParserTest.cs" />
+    <Compile Include="Toci.EntityAnalyzer.Tests\PostCodeRenderer\CodeRendererTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Toci.EntityAnalyzer.BllGenerator.Interfaces\Toci.EntityAnalyzer.BllGenerator.Interfaces.csproj">

@@ -39,12 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tools\CodeClassRenderer.cs" />
-    <Compile Include="Tools\CodeGenerator.cs" />
-    <Compile Include="Tools\PostCodeGenerator\PostCodeClassRenderer.cs" />
-    <Compile Include="Tools\PostCodeGenerator\PostCodePropetiesRenderer.cs" />
-    <Compile Include="Tools\PostCodeGenerator\PostCodeSnippetParser.cs" />
+    <Compile Include="CodeFragment.cs" />
+    <Compile Include="Tools\ClassRenderer.cs" />
+    <Compile Include="Tools\CodeSnippet.cs" />
+    <Compile Include="Tools\CodeSnippets\ConstCodeSnippet.cs" />
+    <Compile Include="Tools\SnippetParser.cs" />
+    <Compile Include="Tools\Custom\PostCodeGenerator\PostCodeRenderer.cs" />
+    <Compile Include="Tools\Custom\PostCodeGenerator\PostCodePropetiesRenderer.cs" />
+    <Compile Include="Tools\Custom\PostCodeGenerator\PostCodeSnippetParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\CodeRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Toci.EntityAnalyzer.BllGenerator.Interfaces\Toci.EntityAnalyzer.BllGenerator.Interfaces.csproj">

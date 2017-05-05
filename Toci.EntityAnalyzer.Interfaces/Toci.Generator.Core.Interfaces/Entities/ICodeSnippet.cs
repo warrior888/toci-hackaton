@@ -5,10 +5,9 @@ using Toci.EntityAnalyzer.Interfaces.Tools;
 
 namespace Toci.Generator.Core.Interfaces.Entities
 {
-    public interface ICodeSnippet<in TSource, out TParseResult> : IFIleParser<TSource, TParseResult> 
-        where TParseResult : IParseResult
-        where TSource : IFileSource
+    public interface ICodeSnippet
     {
         string Snippet { get; set; }
+        void LoadSnippet(string path);
     }
 }
