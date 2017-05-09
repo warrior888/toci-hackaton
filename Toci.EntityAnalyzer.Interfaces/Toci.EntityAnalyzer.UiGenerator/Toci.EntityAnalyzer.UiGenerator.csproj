@@ -33,6 +33,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,7 +48,9 @@
     <Compile Include="ControlsFeatures\WpfHandlers.cs" />
     <Compile Include="ControlsFeatures\WpfProperties.cs" />
     <Compile Include="Controls\ControlGenerator.cs" />
+    <Compile Include="Controls\PostCodeControlGenerator\PostCodeControlGenerator.cs" />
     <Compile Include="Controls\WpfControlGenerator.cs" />
+    <Compile Include="Custom\PostCodeUiGenerator\PostCodeUiGenerator.cs" />
     <Compile Include="Data\WpfCodeBehindEntity.cs" />
     <Compile Include="Managers\UiGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

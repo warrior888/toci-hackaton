@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="CodeBehind\ICodeBehindGenerator.cs" />
     <Compile Include="Controls\IControlGenerator.cs" />
+    <Compile Include="Controls\PostCodeControlGenerator\IPostCodeControlGenerator.cs" />
+    <Compile Include="Custom\PostCodeUiGenerator\IPostCodeUiGenerator.cs" />
     <Compile Include="Data\ICodeBehindEntity.cs" />
     <Compile Include="Data\IControlEntity.cs" />
     <Compile Include="Form\IFormGenerator.cs" />

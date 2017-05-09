@@ -10,5 +10,6 @@
         IModelColumnData Model { get; set; }
 
         IModelFieldMetadata MetaData { get; set; }
+        IParseResult ParseResult { get; set; }
     }
 }

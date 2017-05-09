@@ -7,5 +7,6 @@ namespace Toci.EntityAnalyzer.Entities
         public IEntityData Entity { get; set; }
         public IModelColumnData Model { get; set; }
         public IModelFieldMetadata MetaData { get; set; }
+        public IParseResult ParseResult { get; set; }
     }
 }

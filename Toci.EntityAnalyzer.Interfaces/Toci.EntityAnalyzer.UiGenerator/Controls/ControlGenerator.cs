@@ -6,9 +6,11 @@ namespace Toci.EntityAnalyzer.UiGenerator.Controls
 {
     public abstract class ControlGenerator : IControlGenerator
     {
-        public abstract IControlEntity Generate(IComplexProperty complexProperty, ICodeBehindEntity codeBehindEntity);
 
         protected abstract string GenerateSkeleton();
-
+        public IControlEntity Generate(IParseResult complexProperty, ICodeBehindEntity codeBehindEntity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -2,9 +2,6 @@
 {
     public interface IControlEntity
     {
-        /// <summary>
-        /// Control Tag
-        /// </summary>
-        string Control { get; set; }
+
     }
 }

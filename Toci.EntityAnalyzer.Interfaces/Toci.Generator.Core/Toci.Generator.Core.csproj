@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeFragment.cs" />
+    <Compile Include="Managers\PostCodeManager\PostCodeManager.cs" />
     <Compile Include="Tools\ClassRenderer.cs" />
     <Compile Include="Tools\CodeSnippet.cs" />
     <Compile Include="Tools\CodeSnippets\ConstCodeSnippet.cs" />
@@ -75,6 +76,10 @@
       <Project>{faf757a0-713c-467c-8ded-c6085dd1fe59}</Project>
       <Name>Toci.EntityAnalyzer.UiGenerator.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator\Toci.EntityAnalyzer.UiGenerator.csproj">
+      <Project>{09C6DC77-02D0-48A1-8353-06D24B0CC84B}</Project>
+      <Name>Toci.EntityAnalyzer.UiGenerator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Toci.EntityAnalyzer\Toci.EntityAnalyzer.csproj">
       <Project>{63c18295-5475-42af-bcce-93bb76d4e43c}</Project>
       <Name>Toci.EntityAnalyzer</Name>
@@ -84,6 +89,7 @@
       <Name>Toci.Generator.Core.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

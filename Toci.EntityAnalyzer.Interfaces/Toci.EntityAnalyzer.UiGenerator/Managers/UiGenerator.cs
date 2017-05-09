@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using Toci.EntityAnalyzer.Interfaces.Entities;
 using Toci.EntityAnalyzer.UiGenerator.Interfaces.CodeBehind;
@@ -8,21 +9,13 @@ using Toci.EntityAnalyzer.UiGenerator.Interfaces.Managers;
 
 namespace Toci.EntityAnalyzer.UiGenerator.Managers
 {
-    public class UiGenerator: IUiGenerator
+    public abstract class UiGenerator<TOutput, TControlEntity, TCodeBehindGenerator> : IUiGenerator<TOutput, TControlEntity, TCodeBehindGenerator> 
+        where TControlEntity : IControlEntity 
+        where TCodeBehindGenerator : ICodeBehindGenerator
     {
-        public void GenerateUi(IControlGenerator controlGenerator, ICodeBehindGenerator codeBehindGenerator, IComplexEntity complexEntity)
+        public IEnumerable<TOutput> GenerateUi(TControlEntity controlEntity, TCodeBehindGenerator codeBehindGenerator)
         {
-            var codeBehindEntities = new List<ICodeBehindEntity>();
-            var controlEntities = new List<IControlEntity>();
-            foreach (var complexProperty in complexEntity.ComplexProperties)
-            {
-                var codeBehindEntity = codeBehindGenerator.Generate(complexProperty.Value);
-                codeBehindEntities.Add(codeBehindEntity);
-                var controlEntity = controlGenerator.Generate(complexProperty.Value, codeBehindEntity);
-                controlEntities.Add(controlEntity);
-            }
-            var stringBuilder = new StringBuilder();
-
+            throw new NotImplementedException();
         }
     }
 }
