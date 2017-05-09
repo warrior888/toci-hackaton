@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using Toci.EntityAnalyzer.Entities.Parsing;
 using Toci.EntityAnalyzer.Entities.Parsing.PostCodeParser;
+using Toci.EntityAnalyzer.Interfaces.Entities;
 using Toci.EntityAnalyzer.Interfaces.Entities.Parsing;
 using Toci.EntityAnalyzer.Tools.PostCodeParser;
 using Toci.EntityAnalyzer.UiGenerator.Controls.PostCodeControlGenerator;
@@ -28,7 +29,7 @@ namespace Toci.Generator.Core.Managers.PostCodeManager
             
             IPostCodeUiGenerator<PostCodeEntity, IControlEntity, ICodeBehindGenerator> uiGenerator = new PostCodeUiGenerator<PostCodeEntity, IControlEntity, ICodeBehindGenerator>();
 
-            PostCodeControlGenerator postCodeControlGenerator = new PostCodeControlGenerator();
+            PostCodeControlGenerator<IPostCodeEntity,ICodeBehindEntity> postCodeControlGenerator = new PostCodeControlGenerator<IPostCodeEntity, ICodeBehindEntity>();
 
             foreach (var item in postCodeEntitys)
             {

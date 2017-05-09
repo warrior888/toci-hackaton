@@ -3,7 +3,9 @@ using Toci.EntityAnalyzer.UiGenerator.Interfaces.Data;
 
 namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.Controls
 {
-    public interface IControlGenerator
+    public interface IControlGenerator<in TPraseResult, in TCodeBehindEntity>
+        where TPraseResult : IParseResult
+        where TCodeBehindEntity : ICodeBehindEntity
     {
         /// <summary>
         /// Generates control for given property with satisfying given code behind for it
@@ -11,6 +13,6 @@ namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.Controls
         /// <param name="complexProperty"></param>
         /// <param name="codeBehindEntity"></param>
         /// <returns></returns>
-        IControlEntity Generate(IParseResult complexProperty, ICodeBehindEntity codeBehindEntity);
+        IControlEntity Generate(TPraseResult complexProperty, TCodeBehindEntity codeBehindEntity);
     }
 }
