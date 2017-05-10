@@ -1,4 +1,5 @@
-﻿using Toci.EntityAnalyzer.Interfaces.Entities;
+﻿using System.Collections.Generic;
+using Toci.EntityAnalyzer.Interfaces.Entities;
 using Toci.EntityAnalyzer.UiGenerator.Interfaces.Data;
 
 namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.Controls

@@ -5,6 +5,6 @@ namespace Toci.Generator.Core.Interfaces.Managers.PostCodeManager
 {
     public interface IPostCodeManager
     {
-        IEnumerable<IPostCodeEntity> postCodeEntitys { get; set; }
+        IEnumerable<IPostCodeEntity> PostCodeEntitys { get; set; }
     }
 }

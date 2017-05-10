@@ -33,6 +33,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,8 +51,10 @@
     <Compile Include="Controls\ControlGenerator.cs" />
     <Compile Include="Controls\PostCodeControlGenerator\PostCodeControlGenerator.cs" />
     <Compile Include="Controls\WpfControlGenerator.cs" />
-    <Compile Include="Custom\PostCodeUiGenerator\PostCodeUiGenerator.cs" />
+    <Compile Include="Data\ControlEntity.cs" />
+    <Compile Include="Data\PostCodeControlEntity\PostCodeControlEntity.cs" />
     <Compile Include="Data\WpfCodeBehindEntity.cs" />
+    <Compile Include="Managers\PostCodeUiGenerator\PostCodeUiGenerator.cs" />
     <Compile Include="Managers\UiGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +66,10 @@
     <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator.Interfaces\Toci.EntityAnalyzer.UiGenerator.Interfaces.csproj">
       <Project>{faf757a0-713c-467c-8ded-c6085dd1fe59}</Project>
       <Name>Toci.EntityAnalyzer.UiGenerator.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer\Toci.EntityAnalyzer.csproj">
+      <Project>{63c18295-5475-42af-bcce-93bb76d4e43c}</Project>
+      <Name>Toci.EntityAnalyzer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

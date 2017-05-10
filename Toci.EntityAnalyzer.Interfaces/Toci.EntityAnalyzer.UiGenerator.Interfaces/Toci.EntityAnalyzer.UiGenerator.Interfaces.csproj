@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,12 +43,13 @@
     <Compile Include="CodeBehind\ICodeBehindGenerator.cs" />
     <Compile Include="Controls\IControlGenerator.cs" />
     <Compile Include="Controls\PostCodeControlGenerator\IPostCodeControlGenerator.cs" />
-    <Compile Include="Custom\PostCodeUiGenerator\IPostCodeUiGenerator.cs" />
     <Compile Include="Data\ICodeBehindEntity.cs" />
     <Compile Include="Data\IControlEntity.cs" />
+    <Compile Include="Data\PostCodeControlEntity\IPostCodeControlEntity.cs" />
     <Compile Include="Form\IFormGenerator.cs" />
     <Compile Include="Managers\IUiGenerator.cs" />
     <Compile Include="Managers\IUiGeneratorManager.cs" />
+    <Compile Include="Managers\PostCodeUiGenerator\IPostCodeUiGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

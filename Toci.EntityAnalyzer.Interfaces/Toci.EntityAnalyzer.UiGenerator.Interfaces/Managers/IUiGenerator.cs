@@ -6,7 +6,7 @@ using Toci.EntityAnalyzer.UiGenerator.Interfaces.Data;
 
 namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.Managers
 {
-    public interface IUiGenerator<out TOutput,in TControlEntity,in TCodeBehindGenerator>
+    public interface IUiGenerator<in TControlEntity,in TCodeBehindGenerator>
         where TControlEntity : IControlEntity
         where TCodeBehindGenerator : ICodeBehindGenerator
     {
@@ -16,6 +16,8 @@ namespace Toci.EntityAnalyzer.UiGenerator.Interfaces.Managers
         /// <param name = "controlGenerator" ></ param >
         /// < param name="codeBehindGenerator"></param>
         /// <param name = "complexEntity" ></ param >
-        IEnumerable<TOutput> GenerateUi(TControlEntity controlEntity, TCodeBehindGenerator codeBehindGenerator);
+        void GenerateUi(TControlEntity controlEntity, TCodeBehindGenerator codeBehindGenerator);
+
+        void Show();
     }
 }

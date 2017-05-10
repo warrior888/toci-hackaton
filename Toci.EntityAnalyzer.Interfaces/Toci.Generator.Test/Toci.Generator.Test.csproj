@@ -45,7 +45,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -56,6 +58,7 @@
     <Compile Include="Toci.EntityAnalyzer.Tests\Parser\ExclParserTest.cs" />
     <Compile Include="Toci.EntityAnalyzer.Tests\Parser\PostCodeParserTest.cs" />
     <Compile Include="Toci.EntityAnalyzer.Tests\PostCodeRenderer\CodeRendererTest.cs" />
+    <Compile Include="Toci.EntityAnalyzer.Tests\PostCodeRenderer\PostCodeManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Toci.EntityAnalyzer.BllGenerator.Interfaces\Toci.EntityAnalyzer.BllGenerator.Interfaces.csproj">
@@ -81,6 +84,10 @@
     <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator.Interfaces\Toci.EntityAnalyzer.UiGenerator.Interfaces.csproj">
       <Project>{faf757a0-713c-467c-8ded-c6085dd1fe59}</Project>
       <Name>Toci.EntityAnalyzer.UiGenerator.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toci.EntityAnalyzer.UiGenerator\Toci.EntityAnalyzer.UiGenerator.csproj">
+      <Project>{09c6dc77-02d0-48a1-8353-06d24b0cc84b}</Project>
+      <Name>Toci.EntityAnalyzer.UiGenerator</Name>
     </ProjectReference>
     <ProjectReference Include="..\Toci.EntityAnalyzer\Toci.EntityAnalyzer.csproj">
       <Project>{63c18295-5475-42af-bcce-93bb76d4e43c}</Project>

@@ -13,6 +13,7 @@ using Toci.EntityAnalyzer.Interfaces.Entities;
 using Toci.EntityAnalyzer.Interfaces.Tools;
 using Toci.EntityAnalyzer.Tools;
 using Toci.EntityAnalyzer.Tools.PostCodeParser;
+using Toci.Generator.Core.Managers.PostCodeManager;
 
 namespace Toci.EntityAnalyzer.Poc
 {
@@ -22,6 +23,11 @@ namespace Toci.EntityAnalyzer.Poc
         {
             InitializeComponent();
             GenerateForm();
+
+
+            PostCodeManager manager = new PostCodeManager(@"Z:\", "kody.csv");
+
+            manager.Generate();
         }
 
         protected virtual void GenerateForm()
