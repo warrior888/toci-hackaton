@@ -23,8 +23,6 @@ namespace Toci.EntityAnalyzer.UiGenerator.Managers.PostCodeUiGenerator
             {
                 Window.Controls.Add(AllocateTextBox(controlEntity));
             }
-            
-            Show();
         }
 
         protected TextBox AllocateTextBox(TControlEntity controlEntity)

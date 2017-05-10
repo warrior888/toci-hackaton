@@ -50,9 +50,7 @@ namespace Toci.Generator.Core.Managers.PostCodeManager
         {
             GetGeneratedControlEntitieslist(PostCodeEntitys);
             GetGeneratedUi(_controlEntitiesList);
-
+            _uiGenerator.Show();
         }
-
-
     }
 }
