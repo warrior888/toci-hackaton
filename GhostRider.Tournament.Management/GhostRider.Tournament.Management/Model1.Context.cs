@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GhostRider.Zaba.Bll
+namespace GhostRider.Tournament.Management
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class tournamentEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public tournamentEntities()
+            : base("name=tournamentEntities")
         {
         }
     
@@ -25,9 +25,9 @@ namespace GhostRider.Zaba.Bll
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ProductFeatures> ProductFeatures { get; set; }
-        public virtual DbSet<ProductFeaturesMap> ProductFeaturesMap { get; set; }
-        public virtual DbSet<ProductFeaturesValue> ProductFeaturesValue { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<groupparticipants> groupparticipants { get; set; }
+        public virtual DbSet<groups> groups { get; set; }
+        public virtual DbSet<participants> participants { get; set; }
+        public virtual DbSet<tournament> tournament { get; set; }
     }
 }

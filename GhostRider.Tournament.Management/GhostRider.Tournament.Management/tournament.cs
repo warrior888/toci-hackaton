@@ -7,26 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GhostRider.Zaba.Bll
+namespace GhostRider.Tournament.Management
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductFeaturesMap
+    public partial class tournament
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProductFeaturesMap()
+        public tournament()
         {
-            this.ProductFeaturesValue = new HashSet<ProductFeaturesValue>();
+            this.groups = new HashSet<groups>();
         }
     
-        public int Id { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<int> ProductFeaturesId { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
     
-        public virtual ProductFeatures ProductFeatures { get; set; }
-        public virtual Products Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductFeaturesValue> ProductFeaturesValue { get; set; }
+        public virtual ICollection<groups> groups { get; set; }
     }
 }

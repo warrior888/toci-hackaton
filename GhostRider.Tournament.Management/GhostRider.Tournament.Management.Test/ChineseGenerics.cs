@@ -54,4 +54,11 @@ namespace Euvic.Generator.Core.Test.Poc
         string Field { get; set; }
     }
 
+
+
+
+    static class A { }
+    abstract class B {
+        //private abstract void test();
+    }
 }

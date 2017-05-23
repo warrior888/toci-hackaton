@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GhostRider.Zaba.Bll
+namespace GhostRider.Tournament.Management
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductFeaturesValue
+    public partial class groupparticipants
     {
-        public int Id { get; set; }
-        public Nullable<int> ProductFeaturesMapId { get; set; }
-        public string Value { get; set; }
+        public int id { get; set; }
+        public Nullable<int> groupsid { get; set; }
+        public Nullable<int> participantsid { get; set; }
     
-        public virtual ProductFeaturesMap ProductFeaturesMap { get; set; }
+        public virtual groups groups { get; set; }
+        public virtual participants participants { get; set; }
     }
 }

@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="tournamentModel.Store" Provider="Npgsql" ProviderManifestToken="8.3.14" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="groupparticipants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="groupsid" Type="int4" />
+          <Property Name="participantsid" Type="int4" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tournamentid" Type="int4" />
+        </EntityType>
+        <EntityType Name="participants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="text" />
+        </EntityType>
+        <EntityType Name="tournament">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="text" />
+        </EntityType>
+        <Association Name="groupparticipants_groupsid_fkey">
+          <End Role="groups" Type="Self.groups" Multiplicity="0..1" />
+          <End Role="groupparticipants" Type="Self.groupparticipants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="groupparticipants">
+              <PropertyRef Name="groupsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groupparticipants_participantsid_fkey">
+          <End Role="participants" Type="Self.participants" Multiplicity="0..1" />
+          <End Role="groupparticipants" Type="Self.groupparticipants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="groupparticipants">
+              <PropertyRef Name="participantsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groups_tournamentid_fkey">
+          <End Role="tournament" Type="Self.tournament" Multiplicity="0..1" />
+          <End Role="groups" Type="Self.groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tournament">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="groups">
+              <PropertyRef Name="tournamentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tournamentModelStoreContainer">
+          <EntitySet Name="groupparticipants" EntityType="Self.groupparticipants" Schema="public" store:Type="Tables" />
+          <EntitySet Name="groups" EntityType="Self.groups" Schema="public" store:Type="Tables" />
+          <EntitySet Name="participants" EntityType="Self.participants" Schema="public" store:Type="Tables" />
+          <EntitySet Name="tournament" EntityType="Self.tournament" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="groupparticipants_groupsid_fkey" Association="Self.groupparticipants_groupsid_fkey">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="groupparticipants" EntitySet="groupparticipants" />
+          </AssociationSet>
+          <AssociationSet Name="groupparticipants_participantsid_fkey" Association="Self.groupparticipants_participantsid_fkey">
+            <End Role="participants" EntitySet="participants" />
+            <End Role="groupparticipants" EntitySet="groupparticipants" />
+          </AssociationSet>
+          <AssociationSet Name="groups_tournamentid_fkey" Association="Self.groups_tournamentid_fkey">
+            <End Role="tournament" EntitySet="tournament" />
+            <End Role="groups" EntitySet="groups" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tournamentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="groupparticipants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="groupsid" Type="Int32" />
+          <Property Name="participantsid" Type="Int32" />
+          <NavigationProperty Name="groups" Relationship="Self.groupparticipants_groupsid_fkey" FromRole="groupparticipants" ToRole="groups" />
+          <NavigationProperty Name="participants" Relationship="Self.groupparticipants_participantsid_fkey" FromRole="groupparticipants" ToRole="participants" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tournamentid" Type="Int32" />
+          <NavigationProperty Name="groupparticipants" Relationship="Self.groupparticipants_groupsid_fkey" FromRole="groups" ToRole="groupparticipants" />
+          <NavigationProperty Name="tournament" Relationship="Self.groups_tournamentid_fkey" FromRole="groups" ToRole="tournament" />
+        </EntityType>
+        <EntityType Name="participants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="groupparticipants" Relationship="Self.groupparticipants_participantsid_fkey" FromRole="participants" ToRole="groupparticipants" />
+        </EntityType>
+        <EntityType Name="tournament">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="groups" Relationship="Self.groups_tournamentid_fkey" FromRole="tournament" ToRole="groups" />
+        </EntityType>
+        <Association Name="groupparticipants_groupsid_fkey">
+          <End Role="groups" Type="Self.groups" Multiplicity="0..1" />
+          <End Role="groupparticipants" Type="Self.groupparticipants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="groupparticipants">
+              <PropertyRef Name="groupsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groupparticipants_participantsid_fkey">
+          <End Role="participants" Type="Self.participants" Multiplicity="0..1" />
+          <End Role="groupparticipants" Type="Self.groupparticipants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="groupparticipants">
+              <PropertyRef Name="participantsid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groups_tournamentid_fkey">
+          <End Role="tournament" Type="Self.tournament" Multiplicity="0..1" />
+          <End Role="groups" Type="Self.groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tournament">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="groups">
+              <PropertyRef Name="tournamentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tournamentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="groupparticipants" EntityType="Self.groupparticipants" />
+          <EntitySet Name="groups" EntityType="Self.groups" />
+          <EntitySet Name="participants" EntityType="Self.participants" />
+          <EntitySet Name="tournament" EntityType="Self.tournament" />
+          <AssociationSet Name="groupparticipants_groupsid_fkey" Association="Self.groupparticipants_groupsid_fkey">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="groupparticipants" EntitySet="groupparticipants" />
+          </AssociationSet>
+          <AssociationSet Name="groupparticipants_participantsid_fkey" Association="Self.groupparticipants_participantsid_fkey">
+            <End Role="participants" EntitySet="participants" />
+            <End Role="groupparticipants" EntitySet="groupparticipants" />
+          </AssociationSet>
+          <AssociationSet Name="groups_tournamentid_fkey" Association="Self.groups_tournamentid_fkey">
+            <End Role="tournament" EntitySet="tournament" />
+            <End Role="groups" EntitySet="groups" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tournamentModelStoreContainer" CdmEntityContainer="tournamentEntities">
+          <EntitySetMapping Name="groupparticipants">
+            <EntityTypeMapping TypeName="tournamentModel.groupparticipants">
+              <MappingFragment StoreEntitySet="groupparticipants">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="groupsid" ColumnName="groupsid" />
+                <ScalarProperty Name="participantsid" ColumnName="participantsid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="tournamentModel.groups">
+              <MappingFragment StoreEntitySet="groups">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tournamentid" ColumnName="tournamentid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="participants">
+            <EntityTypeMapping TypeName="tournamentModel.participants">
+              <MappingFragment StoreEntitySet="participants">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tournament">
+            <EntityTypeMapping TypeName="tournamentModel.tournament">
+              <MappingFragment StoreEntitySet="tournament">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

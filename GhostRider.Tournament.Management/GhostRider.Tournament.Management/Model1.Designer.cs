@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\bzapart\Documents\toci-hackaton\GhostRider.Zaba\GhostRider.Zaba.Bll\EntitiesModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Warrior\Documents\toci-hackaton\GhostRider.Tournament.Management\GhostRider.Tournament.Management\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -17,66 +17,51 @@ namespace GhostRider.Zaba
         public Form1()
         {
             InitializeComponent();
+            DodajButton();
+        }
+
+        public void DodajButton()
+        {
+            Button przycisk = new Button();
+            przycisk.Size = new Size(60, 20);
+            przycisk.Location = new Point(40, 60);
+            przycisk.Text = "Dodaj";
+            przycisk.Click += przycisk_Click;
+            Controls.Add(przycisk);
+        }
+
+        void przycisk_Click(object sender, EventArgs e)
+        {
+            Label nazwa = new Label();
+            nazwa.Size = new Size(80, 200);
+            nazwa.Location = new Point(40, 80);
+            nazwa.Text = "Kocham was!!";
+            Controls.Add(nazwa);
         }
 
         private void getProductsButton_Click(object sender, EventArgs e)
         {
-            ProductsBll bll = new ProductsBll();
+            string imie = "ghostrider";
+            char szukane = 'o';
+            int pozycja = 0;
 
-            List<Products> products = bll.GetAllProducts();
-            
-
-            int i = 50;
-            foreach (Products product in products)
+            for (int i = 0; i < imie.Length; i++)
             {
-                AddProductToLayout(product, i);
-                AddProductToLayoutbutton(product, i);
-                i += 20;
+                
+                if (imie[i] == szukane)
+                {
+                    pozycja = i;
+                    break;
+                }
             }
-        }
 
-        protected void AddProductToLayout(Products product, int y)
-        {
-            Label lb = new Label();
+           // exscel csv text
+           //while (sr.Readline())
+           //foreach
 
-            lb.Text = product.Name;
-            lb.Size = new Size(100, 20);
-            lb.Location = new Point(10, y);
-            lb.ForeColor = Color.DarkOrange;
+            test test = new test();
 
-            Controls.Add(lb);
-        }
-        protected void ProductFeaturesValue(ProductFeaturesValue PFValue, int y, int x)
-        {
-            Label lb = new Label();
-
-            lb.Text = PFValue.Value;
-            lb.Size = new Size(100, 20);
-            lb.Location = new Point(x, y);
-
-            Controls.Add(lb);
-        }
-        protected void AddProductToLayoutbutton(Products product, int y)
-        {
-            ProductButton button = new ProductButton(product.Id);
-
-            button.Text = product.Name;
-            button.Size = new Size(150, 20);
-            button.Location = new Point(100, y);
-            button.ForeColor = Color.CornflowerBlue;
-            button.BackColor = Color.Yellow;
-
-            button.Click += ProductButtonClick;
-
-            Controls.Add(button);
-        }
-
-        private void ProductButtonClick(object sender, EventArgs e)
-        {
-            ProductsBll bll = new ProductsBll();
-            List<ProductFeaturesValue> test = bll.GetProductFeaturesValuesForId(((ProductButton)sender).Id);
-
-            ProductFeaturesValue(test[0], ((ProductButton)sender).Location.Y, ((ProductButton)sender).Location.X + 200);
+            test.Test();
         }
     }
 }
