@@ -11,5 +11,22 @@ namespace Toci.EntityAnalyzer.Entities.Parsing.PostCodeParser
         public string Place { get; set; }
         public string Province { get; set; }
         public string County { get; set; }
+
+        private string RemoveThis<TParseResult, TNumber>(int whatever, string doSth)
+        {
+            TParseResult inst1;
+            TNumber inst2;
+            return "erley".Replace(doSth, "I like it");
+        }
+
+        public void ShowThis<TWhatever, TErley>()
+        {
+            TWhatever instance;
+        }
+
+        public void RemoveThis()
+        {
+            
+        }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Entities\ComplexProperty.cs" />
     <Compile Include="Entities\CtParsed.cs" />
     <Compile Include="Entities\ModelFieldMetadata.cs" />
+    <Compile Include="Entities\Parsing\DefaultParseResult.cs" />
     <Compile Include="Entities\Parsing\PostCodeParser\PostCodeEntity.cs" />
     <Compile Include="Entities\Parsing\PostCodeParser\PostCodeExcelFileParser.cs" />
     <Compile Include="Tools\PostCodeParser\PostCodeTextFileParser.cs" />
